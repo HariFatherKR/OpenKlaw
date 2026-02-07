@@ -54,6 +54,7 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             commands::check_ollama,
             commands::get_system_info,
+            commands::parse_hwp,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

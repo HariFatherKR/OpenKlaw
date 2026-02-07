@@ -4,7 +4,7 @@
 
 ---
 
-## 🔄 현재 Phase: Developer - 핵심 기능 (Phase 5)
+## 🔄 현재 Phase: Developer - 설치 패키지 (Phase 6)
 
 ---
 
@@ -66,26 +66,30 @@
 
 ---
 
-## Phase 5: Developer - 핵심 기능 ⏳ 진행 중
+## Phase 5: Developer - 핵심 기능 ✅ 완료
 
 ### 목표: MVP 기능 구현
 - [x] 시스템 트레이 구현 (Tauri lib.rs에 포함)
-- [ ] HWP 파싱 연동 (pyhwp subprocess)
-- [ ] 이메일 작성 스킬
-- [ ] 대화 저장/로드 (SQLite)
-- [ ] pnpm run validate 통과
-- [ ] git commit & push
+- [x] HWP 파싱 연동 (pyhwp subprocess via Rust command)
+- [x] 이메일 작성 스킬 (src/lib/skills/email.ts)
+- [x] 대화 저장/로드 (localStorage, SQLite 예정)
+- [x] pnpm run validate 통과
+- [x] git commit & push
+
+**완료 일시**: 2025-02-07
 
 ---
 
-## Phase 6: Developer - 설치 패키지 ⏸️
+## Phase 6: Developer - 설치 패키지 ⏳ 진행 중
 
 ### 목표: 배포 준비
-- [ ] Windows: NSIS 또는 MSI 설치 패키지
-- [ ] macOS: npm global 설치 테스트
-- [ ] 자동 Ollama 설치 스크립트
-- [ ] 모델 자동 다운로드 로직
-- [ ] git commit
+- [ ] Windows NSIS 설치 패키지 설정
+- [ ] macOS npm global 설치 설정
+- [ ] Ollama 자동 설치 스크립트 (scripts/)
+- [ ] 모델 자동 다운로드 로직 (첫 실행 시)
+- [ ] bin/openklaw.js CLI 진입점
+- [ ] pnpm run validate 통과
+- [ ] git commit & push
 
 ---
 
