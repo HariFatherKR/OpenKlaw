@@ -130,6 +130,20 @@
 
 ---
 
+## Phase 9: Developer - 빌드 & 패키징 ✅ 완료
+
+### 목표: 배포 가능 패키지 생성
+- [x] macOS 앱 빌드 (OpenKlaw.app)
+- [x] macOS DMG 패키지 (2.2MB)
+- [x] 아이콘 파일 생성 (RGBA PNG, ICNS, ICO)
+- [x] Rust 코드 경고 수정
+- [x] git commit
+
+**완료 일시**: 2026-02-07
+**참고**: Windows exe 빌드는 Windows 환경에서 진행 필요
+
+---
+
 ## 🐛 버그/이슈 (QA 발견)
 
 > QA에서 발견된 버그는 여기에 추가
