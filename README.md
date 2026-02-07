@@ -48,6 +48,41 @@ openklaw
 ### 🗂️ 대화 기록
 모든 대화가 로컬에 저장되어 나중에 검색 가능
 
+## 🔧 Ollama 설정
+
+OpenKlaw는 로컬 LLM 실행을 위해 Ollama를 사용합니다.
+
+```bash
+# Ollama 설치 (macOS)
+brew install ollama
+
+# 서버 시작
+brew services start ollama
+
+# 모델 다운로드 (테스트용 작은 모델)
+ollama pull qwen2.5:0.5b
+
+# 또는 권장 모델
+ollama pull qwen2.5:3b-instruct
+```
+
+## 📄 HWP 파싱 (Python)
+
+HWP 문서 처리를 위해 pyhwp를 사용합니다.
+
+```bash
+# Python venv 설정
+cd openklaw
+python3 -m venv .venv
+source .venv/bin/activate
+
+# pyhwp 설치
+pip install pyhwp
+
+# 테스트
+python scripts/test-hwp.py <hwp파일경로>
+```
+
 ## 🛠️ 개발
 
 ```bash
