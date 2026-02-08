@@ -12,6 +12,7 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_global_shortcut::Builder::new().build())
+        .plugin(tauri_plugin_fs::init())
         .setup(|app| {
             // 시스템 트레이 설정
             let quit = MenuItem::with_id(app, "quit", "종료", true, None::<&str>)?;
@@ -75,6 +76,7 @@ pub fn run() {
             commands::check_ollama,
             commands::get_system_info,
             commands::parse_hwp,
+            commands::convert_hwp_to_pdf,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

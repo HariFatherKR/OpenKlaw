@@ -229,18 +229,63 @@ async function parsePdfFile(file: File): Promise<ParseResult> {
 }
 
 /**
- * HWP 파일 파싱
+ * HWP 파일 파싱 (hwpparser CLI 연동)
  */
 async function parseHwpFile(file: File): Promise<ParseResult> {
-	// HWP는 복잡한 바이너리 포맷 - Python pyhwp 또는 별도 서비스 필요
 	try {
+		// Tauri 환경인지 확인
+		if (typeof window !== 'undefined' && '__TAURI__' in window) {
+			const { invoke } = await import('@tauri-apps/api/core');
+			const { writeFile, tempDir } = await import('@tauri-apps/plugin-fs');
+			
+			// 임시 파일로 저장
+			const tempPath = await tempDir();
+			const filePath = `${tempPath}/${file.name}`;
+			const arrayBuffer = await file.arrayBuffer();
+			await writeFile(filePath, new Uint8Array(arrayBuffer));
+			
+			// hwpparser CLI 호출 (표 포함)
+			const result = await invoke<{
+				success: boolean;
+				text: string | null;
+				error: string | null;
+			}>('parse_hwp', { 
+				path: filePath,
+				includeTables: true  // rich-text 모드로 표 포함 추출
+			});
+			
+			if (result.success && result.text) {
+				return {
+					success: true,
+					content: result.text,
+					metadata: {
+						fileName: file.name,
+						fileType: getFileExtension(file.name),
+						fileSize: file.size
+					}
+				};
+			} else {
+				return {
+					success: false,
+					content: '',
+					metadata: {
+						fileName: file.name,
+						fileType: getFileExtension(file.name),
+						fileSize: file.size
+					},
+					error: result.error || 'HWP 파싱 실패'
+				};
+			}
+		}
+		
+		// 브라우저 환경 (Tauri 외부)
 		return {
 			success: true,
 			content: `📝 한글(HWP) 파일이 업로드되었습니다.\n\n` +
 				`파일명: ${file.name}\n` +
 				`크기: ${formatFileSize(file.size)}\n\n` +
-				`⚠️ HWP 파일 파싱은 Python 서비스 연동 후 완전 지원 예정입니다.\n` +
-				`현재는 파일 정보만 표시됩니다.`,
+				`⚠️ 브라우저 환경에서는 HWP 파싱이 제한됩니다.\n` +
+				`Dubai Crab 데스크톱 앱에서 전체 기능을 사용하세요.`,
 			metadata: {
 				fileName: file.name,
 				fileType: getFileExtension(file.name),
