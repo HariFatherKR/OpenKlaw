@@ -4,46 +4,57 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				// CoachPro style colors (Light Theme)
+				// Dubai Crab style colors (두바이 쫀득 쿠키 테마)
 				primary: {
-					DEFAULT: '#14b8a6',
-					hover: '#0d9488',
-					light: '#5eead4',
-					50: '#f0fdfa',
-					100: '#ccfbf1',
-					500: '#14b8a6',
-					600: '#0d9488',
-					700: '#0f766e'
+					DEFAULT: '#4a7c59',
+					hover: '#3d6b4f',
+					dark: '#2d5a3f',
+					light: '#6b9b7a',
+					50: '#e8f5e9',
+					100: '#c8e6c9',
+					500: '#4a7c59',
+					600: '#3d6b4f',
+					700: '#2d5a3f'
 				},
-				secondary: '#06b6d4',
-				accent: '#10b981',
+				secondary: {
+					DEFAULT: '#5D4037',
+					light: '#795548',
+					dark: '#4E342E',
+					darker: '#3E2723'
+				},
+				accent: {
+					DEFAULT: '#D4A574',
+					light: '#E8C9A0',
+					dark: '#C49A6C',
+					golden: '#B8860B'
+				},
 				
-				// Light theme backgrounds
+				// Dark chocolate backgrounds
 				bg: {
-					DEFAULT: '#e6f5f3',
-					light: '#f0fdfa',
-					card: 'rgba(255, 255, 255, 0.6)'
+					DEFAULT: '#3E2723',
+					light: '#4E342E',
+					card: 'rgba(74, 124, 89, 0.15)'
 				},
 				
-				// Glass morphism
+				// Glass morphism (피스타치오 그린)
 				glass: {
-					bg: 'rgba(255, 255, 255, 0.6)',
-					border: 'rgba(255, 255, 255, 0.8)',
-					hover: 'rgba(255, 255, 255, 0.8)'
+					bg: 'rgba(74, 124, 89, 0.2)',
+					border: 'rgba(74, 124, 89, 0.3)',
+					hover: 'rgba(74, 124, 89, 0.3)'
 				},
 				
-				// Text colors (dark for light theme)
+				// Text colors (cream/white for dark theme)
 				text: {
-					DEFAULT: '#1e293b',
-					secondary: '#64748b',
-					muted: '#94a3b8'
+					DEFAULT: '#FFF8E1',
+					secondary: '#D7CCC8',
+					muted: '#BCAAA4'
 				},
 				
 				// Status colors
-				success: '#059669',
-				warning: '#d97706',
-				error: '#dc2626',
-				info: '#2563eb'
+				success: '#81C784',
+				warning: '#FFB74D',
+				error: '#E57373',
+				info: '#64B5F6'
 			},
 			borderRadius: {
 				'2xl': '1rem',
@@ -51,12 +62,12 @@ export default {
 				'4xl': '2rem'
 			},
 			boxShadow: {
-				'glass': '0 8px 32px rgba(0, 0, 0, 0.08)',
-				'glass-lg': '0 16px 48px rgba(0, 0, 0, 0.1)',
-				'glass-hover': '0 12px 40px rgba(0, 0, 0, 0.12)',
-				'glow': '0 0 20px rgba(20, 184, 166, 0.2)',
-				'glow-lg': '0 0 40px rgba(20, 184, 166, 0.3)',
-				'soft': '0 2px 8px rgba(0, 0, 0, 0.04)'
+				'glass': '0 8px 32px rgba(0, 0, 0, 0.3)',
+				'glass-lg': '0 16px 48px rgba(0, 0, 0, 0.4)',
+				'glass-hover': '0 12px 40px rgba(0, 0, 0, 0.35)',
+				'glow': '0 0 20px rgba(212, 165, 116, 0.3)',
+				'glow-lg': '0 0 40px rgba(212, 165, 116, 0.4)',
+				'soft': '0 2px 8px rgba(0, 0, 0, 0.2)'
 			},
 			backdropBlur: {
 				'xs': '2px',
@@ -66,8 +77,9 @@ export default {
 				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
 			},
 			backgroundImage: {
-				'gradient-mint': 'linear-gradient(135deg, #e6f5f3 0%, #d9ece9 25%, #cce4e7 50%, #c5e1ec 75%, #d4eaf5 100%)',
-				'gradient-teal': 'linear-gradient(135deg, #14b8a6, #06b6d4)'
+				'gradient-chocolate': 'linear-gradient(135deg, #3E2723 0%, #4E342E 25%, #5D4037 50%, #4E342E 75%, #3E2723 100%)',
+				'gradient-pistachio': 'linear-gradient(135deg, #2d5a3f 0%, #3d6b4f 50%, #4a7c59 100%)',
+				'gradient-golden': 'linear-gradient(135deg, #D4A574, #B8860B)'
 			}
 		}
 	},

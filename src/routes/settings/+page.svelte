@@ -43,7 +43,7 @@
 <div class="settings-page">
 	<div class="settings-header">
 		<h1>⚙️ 설정</h1>
-		<p>OpenKlaw 앱 설정을 관리합니다</p>
+		<p>Dubai Crab 앱 설정을 관리합니다</p>
 	</div>
 	
 	<div class="settings-content">
@@ -184,7 +184,7 @@
 					type="text" 
 					value={settings.dataPath}
 					onchange={(e) => updateSetting('dataPath', e.currentTarget.value)}
-					placeholder="~/.openklaw"
+					placeholder="~/.dubai-crab"
 				/>
 			</div>
 		</section>
@@ -213,9 +213,9 @@
 	
 	<div class="settings-footer">
 		<div class="version-info">
-			<span>OpenKlaw v0.1.0</span>
+			<span>Dubai Crab v0.1.0</span>
 			<span>•</span>
-			<a href="https://github.com/openklaw/openklaw" target="_blank">GitHub</a>
+			<a href="https://github.com/HariFatherKR/DubaiCrab" target="_blank">GitHub</a>
 		</div>
 	</div>
 </div>
@@ -235,11 +235,11 @@
 		font-size: 1.75rem;
 		font-weight: 700;
 		margin: 0 0 0.5rem;
-		color: rgba(255, 255, 255, 0.95);
+		color: #FFF8E1;
 	}
 	
 	.settings-header p {
-		color: rgba(255, 255, 255, 0.6);
+		color: #D7CCC8;
 		margin: 0;
 	}
 	
@@ -250,8 +250,8 @@
 	}
 	
 	.settings-section {
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(74, 124, 89, 0.15);
+		border: 1px solid rgba(74, 124, 89, 0.25);
 		border-radius: 16px;
 		padding: 1.5rem;
 	}
@@ -260,7 +260,7 @@
 		font-size: 1.1rem;
 		font-weight: 600;
 		margin: 0 0 1.25rem;
-		color: rgba(255, 255, 255, 0.9);
+		color: #FFF8E1;
 	}
 	
 	.setting-item {
@@ -277,27 +277,27 @@
 	.setting-item > label {
 		font-size: 0.95rem;
 		font-weight: 500;
-		color: rgba(255, 255, 255, 0.8);
+		color: #D7CCC8;
 	}
 	
 	.setting-hint {
 		font-size: 0.8rem;
-		color: rgba(255, 255, 255, 0.4);
+		color: #BCAAA4;
 	}
 	
 	select, input[type="text"] {
 		padding: 0.75rem 1rem;
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(74, 124, 89, 0.1);
+		border: 1px solid rgba(74, 124, 89, 0.25);
 		border-radius: 10px;
-		color: rgba(255, 255, 255, 0.95);
+		color: #FFF8E1;
 		font-size: 0.95rem;
 		font-family: inherit;
 	}
 	
 	select:focus, input:focus {
 		outline: none;
-		border-color: rgba(20, 184, 166, 0.5);
+		border-color: rgba(212, 165, 116, 0.5);
 	}
 	
 	.inline-form {
@@ -311,17 +311,17 @@
 	
 	.inline-form button {
 		padding: 0.75rem 1.25rem;
-		background: linear-gradient(135deg, #14b8a6, #0d9488);
+		background: linear-gradient(135deg, #D4A574, #B8860B);
 		border: none;
 		border-radius: 10px;
-		color: white;
-		font-weight: 500;
+		color: #3E2723;
+		font-weight: 600;
 		cursor: pointer;
 		transition: all 0.2s;
 	}
 	
 	.inline-form button:hover:not(:disabled) {
-		background: linear-gradient(135deg, #0d9488, #0f766e);
+		background: linear-gradient(135deg, #B8860B, #D4A574);
 	}
 	
 	.inline-form button:disabled {
@@ -341,23 +341,23 @@
 		align-items: center;
 		gap: 0.5rem;
 		padding: 0.375rem 0.75rem;
-		background: rgba(255, 255, 255, 0.1);
+		background: rgba(74, 124, 89, 0.2);
 		border-radius: 6px;
 		font-size: 0.85rem;
-		color: rgba(255, 255, 255, 0.8);
+		color: #D7CCC8;
 	}
 	
 	.model-tag button {
 		background: none;
 		border: none;
-		color: rgba(255, 255, 255, 0.5);
+		color: #BCAAA4;
 		cursor: pointer;
 		padding: 0;
 		font-size: 0.8rem;
 	}
 	
 	.model-tag button:hover {
-		color: #f87171;
+		color: #E57373;
 	}
 	
 	.theme-options {
@@ -372,22 +372,22 @@
 		align-items: center;
 		gap: 0.5rem;
 		padding: 1rem;
-		background: rgba(255, 255, 255, 0.06);
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(74, 124, 89, 0.1);
+		border: 1px solid rgba(74, 124, 89, 0.2);
 		border-radius: 12px;
-		color: rgba(255, 255, 255, 0.7);
+		color: #D7CCC8;
 		cursor: pointer;
 		transition: all 0.2s;
 	}
 	
 	.theme-btn:hover {
-		background: rgba(255, 255, 255, 0.1);
+		background: rgba(74, 124, 89, 0.2);
 	}
 	
 	.theme-btn.active {
-		background: rgba(20, 184, 166, 0.15);
-		border-color: rgba(20, 184, 166, 0.4);
-		color: #5eead4;
+		background: rgba(212, 165, 116, 0.2);
+		border-color: rgba(212, 165, 116, 0.4);
+		color: #D4A574;
 	}
 	
 	.theme-icon {
@@ -414,8 +414,8 @@
 	}
 	
 	.color-btn.active {
-		border-color: white;
-		box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+		border-color: #D4A574;
+		box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.3);
 	}
 	
 	.shortcut-display {
@@ -426,12 +426,12 @@
 	
 	kbd {
 		padding: 0.375rem 0.625rem;
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.15);
+		background: rgba(74, 124, 89, 0.2);
+		border: 1px solid rgba(74, 124, 89, 0.3);
 		border-radius: 6px;
 		font-family: inherit;
 		font-size: 0.9rem;
-		color: rgba(255, 255, 255, 0.8);
+		color: #D7CCC8;
 	}
 	
 	.toggle-switch {
@@ -453,7 +453,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: rgba(255, 255, 255, 0.1);
+		background: rgba(74, 124, 89, 0.2);
 		border-radius: 14px;
 		transition: 0.3s;
 	}
@@ -465,52 +465,53 @@
 		width: 20px;
 		left: 4px;
 		bottom: 4px;
-		background: white;
+		background: #D7CCC8;
 		border-radius: 50%;
 		transition: 0.3s;
 	}
 	
 	.toggle-switch input:checked + .toggle-label {
-		background: #14b8a6;
+		background: #D4A574;
 	}
 	
 	.toggle-switch input:checked + .toggle-label::before {
 		transform: translateX(24px);
+		background: #3E2723;
 	}
 	
 	.danger-zone {
-		border-color: rgba(239, 68, 68, 0.3);
+		border-color: rgba(229, 115, 115, 0.3);
 	}
 	
 	.danger-zone h2 {
-		color: #fca5a5;
+		color: #E57373;
 	}
 	
 	.reset-btn {
 		padding: 0.75rem 1.5rem;
-		background: rgba(239, 68, 68, 0.15);
-		border: 1px solid rgba(239, 68, 68, 0.3);
+		background: rgba(229, 115, 115, 0.15);
+		border: 1px solid rgba(229, 115, 115, 0.3);
 		border-radius: 10px;
-		color: #fca5a5;
+		color: #E57373;
 		font-weight: 500;
 		cursor: pointer;
 		transition: all 0.2s;
 	}
 	
 	.reset-btn:hover {
-		background: rgba(239, 68, 68, 0.25);
+		background: rgba(229, 115, 115, 0.25);
 	}
 	
 	.confirm-box {
-		background: rgba(239, 68, 68, 0.1);
-		border: 1px solid rgba(239, 68, 68, 0.2);
+		background: rgba(229, 115, 115, 0.1);
+		border: 1px solid rgba(229, 115, 115, 0.2);
 		border-radius: 12px;
 		padding: 1rem;
 	}
 	
 	.confirm-box p {
 		margin: 0 0 1rem;
-		color: rgba(255, 255, 255, 0.8);
+		color: #D7CCC8;
 	}
 	
 	.confirm-actions {
@@ -528,25 +529,25 @@
 	}
 	
 	.cancel-btn {
-		background: rgba(255, 255, 255, 0.1);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		color: rgba(255, 255, 255, 0.8);
+		background: rgba(74, 124, 89, 0.2);
+		border: 1px solid rgba(74, 124, 89, 0.3);
+		color: #D7CCC8;
 	}
 	
 	.danger-btn {
-		background: #ef4444;
+		background: #E57373;
 		border: none;
-		color: white;
+		color: #3E2723;
 	}
 	
 	.danger-btn:hover {
-		background: #dc2626;
+		background: #EF5350;
 	}
 	
 	.settings-footer {
 		margin-top: 2rem;
 		padding-top: 1.5rem;
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		border-top: 1px solid rgba(74, 124, 89, 0.2);
 		text-align: center;
 	}
 	
@@ -555,12 +556,12 @@
 		justify-content: center;
 		align-items: center;
 		gap: 0.75rem;
-		color: rgba(255, 255, 255, 0.4);
+		color: #BCAAA4;
 		font-size: 0.85rem;
 	}
 	
 	.version-info a {
-		color: #5eead4;
+		color: #D4A574;
 		text-decoration: none;
 	}
 	

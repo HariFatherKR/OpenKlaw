@@ -34,20 +34,20 @@
 
 <style>
 	.glass-card {
-		/* Light glassmorphism - CoachPro style with depth */
-		background: rgba(255, 255, 255, 0.65);
+		/* Dark pistachio glassmorphism - Dubai Crab style */
+		background: rgba(74, 124, 89, 0.15);
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
-		border: 1px solid rgba(255, 255, 255, 0.9);
+		border: 1px solid rgba(74, 124, 89, 0.25);
 		border-radius: 20px;
 		padding: 1.5rem;
 		/* Multi-layer shadow for depth */
 		box-shadow: 
-			0 2px 4px rgba(0, 0, 0, 0.02),
-			0 4px 8px rgba(0, 0, 0, 0.03),
-			0 8px 16px rgba(0, 0, 0, 0.04),
-			0 16px 32px rgba(0, 0, 0, 0.05),
-			inset 0 1px 1px rgba(255, 255, 255, 0.8);
+			0 2px 4px rgba(0, 0, 0, 0.1),
+			0 4px 8px rgba(0, 0, 0, 0.1),
+			0 8px 16px rgba(0, 0, 0, 0.15),
+			0 16px 32px rgba(0, 0, 0, 0.2),
+			inset 0 1px 1px rgba(74, 124, 89, 0.2);
 		position: relative;
 		overflow: hidden;
 		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -63,8 +63,8 @@
 		height: 50%;
 		background: linear-gradient(
 			135deg,
-			rgba(255, 255, 255, 0.5) 0%,
-			rgba(255, 255, 255, 0.2) 30%,
+			rgba(74, 124, 89, 0.15) 0%,
+			rgba(74, 124, 89, 0.05) 30%,
 			transparent 60%
 		);
 		pointer-events: none;
@@ -74,11 +74,11 @@
 	.glass-card:hover {
 		transform: translateY(-2px);
 		box-shadow: 
-			0 4px 8px rgba(0, 0, 0, 0.03),
-			0 8px 16px rgba(0, 0, 0, 0.05),
-			0 16px 32px rgba(0, 0, 0, 0.06),
-			0 24px 48px rgba(0, 0, 0, 0.08),
-			inset 0 1px 1px rgba(255, 255, 255, 0.9);
+			0 4px 8px rgba(0, 0, 0, 0.15),
+			0 8px 16px rgba(0, 0, 0, 0.2),
+			0 16px 32px rgba(0, 0, 0, 0.25),
+			0 24px 48px rgba(0, 0, 0, 0.3),
+			inset 0 1px 1px rgba(74, 124, 89, 0.3);
 	}
 	
 	.glass-card.full-width {
@@ -105,13 +105,13 @@
 	.card-title h3 {
 		font-size: 1rem;
 		font-weight: 600;
-		color: #1e293b;
+		color: #FFF8E1;
 		margin: 0;
 	}
 	
 	.card-action {
 		font-size: 0.85rem;
-		color: #14b8a6;
+		color: #D4A574;
 	}
 	
 	.card-action :global(a) {
@@ -120,10 +120,10 @@
 	}
 	
 	.card-action :global(a:hover) {
-		color: #0d9488;
+		color: #B8860B;
 	}
 	
 	.card-content {
-		color: #475569;
+		color: #D7CCC8;
 	}
 </style>

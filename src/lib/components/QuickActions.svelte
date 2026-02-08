@@ -111,9 +111,9 @@
 		width: 44px;
 		height: 44px;
 		border-radius: 12px;
-		background: linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(6, 182, 212, 0.08));
-		border: 1px solid rgba(20, 184, 166, 0.2);
-		color: #0d9488;
+		background: linear-gradient(135deg, rgba(74, 124, 89, 0.3), rgba(45, 90, 63, 0.2));
+		border: 1px solid rgba(74, 124, 89, 0.4);
+		color: #D4A574;
 		font-size: 1.25rem;
 		cursor: pointer;
 		transition: all 0.2s;
@@ -123,14 +123,14 @@
 	}
 	
 	.toggle-btn:hover {
-		background: linear-gradient(135deg, rgba(20, 184, 166, 0.18), rgba(6, 182, 212, 0.12));
-		box-shadow: 0 4px 12px rgba(20, 184, 166, 0.15);
+		background: linear-gradient(135deg, rgba(74, 124, 89, 0.4), rgba(45, 90, 63, 0.3));
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 	}
 	
 	.toggle-btn.expanded {
-		background: rgba(239, 68, 68, 0.1);
-		border-color: rgba(239, 68, 68, 0.2);
-		color: #dc2626;
+		background: rgba(229, 115, 115, 0.2);
+		border-color: rgba(229, 115, 115, 0.3);
+		color: #E57373;
 	}
 	
 	.icon {
@@ -146,16 +146,16 @@
 		bottom: 100%;
 		left: 0;
 		margin-bottom: 0.75rem;
-		/* Light glassmorphism */
-		background: rgba(255, 255, 255, 0.9);
+		/* Dark pistachio glassmorphism */
+		background: rgba(45, 90, 63, 0.95);
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
-		border: 1px solid rgba(255, 255, 255, 0.8);
+		border: 1px solid rgba(74, 124, 89, 0.3);
 		border-radius: 16px;
 		padding: 1rem;
 		min-width: 280px;
 		animation: slideUp 0.2s ease-out;
-		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 	}
 	
 	@keyframes slideUp {
@@ -172,12 +172,12 @@
 	.actions-header {
 		font-size: 0.8rem;
 		font-weight: 600;
-		color: #64748b;
+		color: #BCAAA4;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
 		margin-bottom: 0.75rem;
 		padding-bottom: 0.5rem;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+		border-bottom: 1px solid rgba(74, 124, 89, 0.3);
 	}
 	
 	.actions-grid {
@@ -192,16 +192,16 @@
 		align-items: center;
 		gap: 0.25rem;
 		padding: 0.75rem 0.5rem;
-		background: rgba(255, 255, 255, 0.6);
-		border: 1px solid rgba(0, 0, 0, 0.06);
+		background: rgba(74, 124, 89, 0.2);
+		border: 1px solid rgba(74, 124, 89, 0.25);
 		border-radius: 10px;
 		cursor: pointer;
 		transition: all 0.2s;
 	}
 	
 	.action-btn:hover {
-		background: rgba(20, 184, 166, 0.08);
-		border-color: rgba(20, 184, 166, 0.2);
+		background: rgba(212, 165, 116, 0.15);
+		border-color: rgba(212, 165, 116, 0.3);
 		transform: translateY(-1px);
 	}
 	
@@ -211,7 +211,7 @@
 	
 	.action-label {
 		font-size: 0.75rem;
-		color: #1e293b;
+		color: #FFF8E1;
 		font-weight: 500;
 		white-space: nowrap;
 	}

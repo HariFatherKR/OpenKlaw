@@ -19,8 +19,8 @@
 <aside class="sidebar">
 	<div class="sidebar-header">
 		<div class="logo">
-			<span class="logo-icon">🦞</span>
-			<span class="logo-text">OpenKlaw</span>
+			<span class="logo-icon">🦀</span>
+			<span class="logo-text">Dubai Crab</span>
 		</div>
 	</div>
 	
@@ -48,20 +48,20 @@
 	.sidebar {
 		width: 220px;
 		min-height: 100vh;
-		/* Light glassmorphism with depth */
-		background: rgba(255, 255, 255, 0.55);
+		/* Dark pistachio glassmorphism */
+		background: rgba(45, 90, 63, 0.4);
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
-		border-right: 1px solid rgba(255, 255, 255, 0.9);
+		border-right: 1px solid rgba(74, 124, 89, 0.3);
 		display: flex;
 		flex-direction: column;
 		padding: 1.5rem 1rem;
 		/* Multi-layer shadow for depth */
 		box-shadow: 
-			4px 0 8px rgba(0, 0, 0, 0.02),
-			8px 0 16px rgba(0, 0, 0, 0.03),
-			16px 0 32px rgba(0, 0, 0, 0.04),
-			inset -1px 0 0 rgba(255, 255, 255, 0.5);
+			4px 0 8px rgba(0, 0, 0, 0.1),
+			8px 0 16px rgba(0, 0, 0, 0.1),
+			16px 0 32px rgba(0, 0, 0, 0.15),
+			inset -1px 0 0 rgba(74, 124, 89, 0.2);
 		position: relative;
 	}
 	
@@ -75,7 +75,7 @@
 		height: 150px;
 		background: linear-gradient(
 			180deg,
-			rgba(255, 255, 255, 0.4) 0%,
+			rgba(74, 124, 89, 0.2) 0%,
 			transparent 100%
 		);
 		pointer-events: none;
@@ -99,7 +99,7 @@
 	.logo-text {
 		font-size: 1.25rem;
 		font-weight: 700;
-		background: linear-gradient(135deg, #14b8a6, #06b6d4);
+		background: linear-gradient(135deg, #D4A574, #B8860B);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
@@ -119,22 +119,22 @@
 		padding: 0.875rem 1rem;
 		border-radius: 12px;
 		text-decoration: none;
-		color: #64748b;
+		color: #D7CCC8;
 		font-size: 0.95rem;
 		font-weight: 500;
 		transition: all 0.2s ease;
 	}
 	
 	.nav-item:hover {
-		background: rgba(255, 255, 255, 0.6);
-		color: #1e293b;
+		background: rgba(74, 124, 89, 0.3);
+		color: #FFF8E1;
 	}
 	
 	.nav-item.active {
-		background: linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(6, 182, 212, 0.1));
-		color: #0d9488;
-		box-shadow: 0 2px 8px rgba(20, 184, 166, 0.15);
-		border: 1px solid rgba(20, 184, 166, 0.2);
+		background: linear-gradient(135deg, rgba(74, 124, 89, 0.4), rgba(45, 90, 63, 0.3));
+		color: #D4A574;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+		border: 1px solid rgba(212, 165, 116, 0.3);
 	}
 	
 	.nav-icon {
@@ -147,7 +147,7 @@
 	
 	.sidebar-footer {
 		padding-top: 1rem;
-		border-top: 1px solid rgba(0, 0, 0, 0.06);
+		border-top: 1px solid rgba(74, 124, 89, 0.2);
 	}
 	
 	.version-badge {
@@ -155,9 +155,9 @@
 		align-items: center;
 		justify-content: center;
 		padding: 0.5rem;
-		background: rgba(255, 255, 255, 0.5);
+		background: rgba(74, 124, 89, 0.2);
 		border-radius: 8px;
 		font-size: 0.8rem;
-		color: #94a3b8;
+		color: #BCAAA4;
 	}
 </style>

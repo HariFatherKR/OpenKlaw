@@ -16,14 +16,14 @@
 	.app-layout {
 		min-height: 100vh;
 		display: flex;
-		/* Light mint/teal gradient background */
+		/* Dark Chocolate gradient background - Dubai Crab Style */
 		background: linear-gradient(
 			135deg,
-			#e6f5f3 0%,
-			#d9ece9 25%,
-			#cce4e7 50%,
-			#c5e1ec 75%,
-			#d4eaf5 100%
+			#3E2723 0%,
+			#4E342E 25%,
+			#5D4037 50%,
+			#4E342E 75%,
+			#3E2723 100%
 		);
 		background-attachment: fixed;
 	}

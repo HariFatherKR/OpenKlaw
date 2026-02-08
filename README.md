@@ -1,4 +1,4 @@
-# 🦞 OpenKlaw
+# 🦀 Dubai Crab
 
 > 한국 사무직을 위한 로컬 AI 비서
 
@@ -17,13 +17,13 @@
 ### macOS / Linux
 
 ```bash
-npm install -g openklaw
-openklaw
+npm install -g dubai-crab
+dubai-crab
 ```
 
 ### Windows
 
-[Releases](https://github.com/HariFatherKR/OpenKlaw/releases)에서 설치 파일 다운로드
+[Releases](https://github.com/HariFatherKR/DubaiCrab/releases)에서 설치 파일 다운로드
 
 ## 📋 시스템 요구사항
 
@@ -48,97 +48,54 @@ openklaw
 ### 🗂️ 대화 기록
 모든 대화가 로컬에 저장되어 나중에 검색 가능
 
-## 🔧 Ollama 설정
-
-OpenKlaw는 로컬 LLM 실행을 위해 Ollama를 사용합니다.
-
-```bash
-# Ollama 설치 (macOS)
-brew install ollama
-
-# 서버 시작
-brew services start ollama
-
-# 모델 다운로드 (테스트용 작은 모델)
-ollama pull qwen2.5:0.5b
-
-# 또는 권장 모델
-ollama pull qwen2.5:3b-instruct
-```
-
-## 📄 HWP 파싱 (Python)
-
-HWP 문서 처리를 위해 pyhwp를 사용합니다.
-
-```bash
-# Python venv 설정
-cd openklaw
-python3 -m venv .venv
-source .venv/bin/activate
-
-# pyhwp 설치
-pip install pyhwp
-
-# 테스트
-python scripts/test-hwp.py <hwp파일경로>
-```
-
 ## 🛠️ 개발
 
 ```bash
 # 의존성 설치
 pnpm install
 
-# 개발 서버
+# 개발 서버 실행
 pnpm dev
 
-# Tauri 개발 모드
+# Tauri 앱 개발
 pnpm tauri:dev
 
 # 빌드
-pnpm tauri:build
-
-# 테스트
-pnpm test
-
-# 전체 검증
-pnpm validate
+pnpm build
 ```
 
 ## 📁 프로젝트 구조
 
 ```
-OpenKlaw/
-├── src/                  # SvelteKit 프론트엔드
+dubai-crab/
+├── src/
 │   ├── lib/
-│   │   ├── components/   # UI 컴포넌트
-│   │   ├── ollama/       # Ollama 클라이언트
-│   │   ├── skills/       # AI 스킬 (이메일 등)
-│   │   ├── tools/        # 도구 (HWP 파싱 등)
-│   │   └── stores/       # 상태 관리
-│   └── routes/           # 페이지
-├── src-tauri/            # Tauri 백엔드 (Rust)
-├── scripts/              # 설치 스크립트
-├── bin/                  # CLI 진입점
-└── docs/                 # 문서
+│   │   ├── components/   # Svelte 컴포넌트
+│   │   ├── stores/       # 상태 관리
+│   │   ├── skills/       # AI 스킬 모듈
+│   │   └── ollama.ts     # Ollama API 클라이언트
+│   └── routes/           # SvelteKit 라우트
+├── src-tauri/            # Tauri 백엔드
+├── static/               # 정적 파일
+└── bin/                  # CLI 스크립트
 ```
 
-## 🤝 기여
+## 🎨 테마
 
-버그 리포트, 기능 제안, PR 모두 환영합니다!
+Dubai Crab은 두바이 쫀득 쿠키에서 영감을 받은 독특한 색상 팔레트를 사용합니다:
 
-1. Fork
-2. Feature branch (`git checkout -b feature/amazing`)
-3. Commit (`git commit -m 'feat: add amazing feature'`)
-4. Push (`git push origin feature/amazing`)
-5. Pull Request
+- **피스타치오 그린**: #4a7c59, #3d6b4f, #2d5a3f
+- **초콜릿 브라운**: #5D4037, #4E342E, #3E2723
+- **골든/카라멜**: #D4A574, #C49A6C, #B8860B
 
-## 📄 라이센스
+## 📄 라이선스
 
-MIT License - [LICENSE](LICENSE)
+MIT License - 자유롭게 사용하세요!
 
-## 🔗 링크
+## 🙏 기여
 
-- [문서](docs/)
-- [이슈](https://github.com/HariFatherKR/OpenKlaw/issues)
-- [릴리스](https://github.com/HariFatherKR/OpenKlaw/releases)
+PR 환영합니다! [Contributing Guide](CONTRIBUTING.md)를 참고해주세요.
+
+---
+
+Made with ❤️ by [HariFatherKR](https://github.com/HariFatherKR)

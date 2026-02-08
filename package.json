@@ -1,7 +1,7 @@
 {
-  "name": "openklaw",
+  "name": "dubai-crab",
   "version": "0.1.0",
-  "description": "한국 사무직을 위한 로컬 AI 비서",
+  "description": "두바이 크랩 - 한국 사무직을 위한 로컬 AI 비서",
   "type": "module",
   "scripts": {
     "dev": "vite dev",
@@ -20,7 +20,7 @@
     "postinstall": "node scripts/postinstall.js || true"
   },
   "bin": {
-    "openklaw": "./bin/openklaw.js"
+    "dubai-crab": "./bin/dubai-crab.js"
   },
   "files": [
     "bin/",
@@ -40,7 +40,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HariFatherKR/OpenKlaw.git"
+    "url": "https://github.com/HariFatherKR/DubaiCrab.git"
   },
   "engines": {
     "node": ">=20.0.0"

@@ -91,7 +91,7 @@
 </script>
 
 <svelte:head>
-	<title>OpenKlaw - Dashboard</title>
+	<title>Dubai Crab - Dashboard</title>
 </svelte:head>
 
 <Header title="Dashboard" subtitle="프로젝트 현황 및 통계" userName="PM" />
@@ -116,10 +116,10 @@
 	
 	<!-- 사용 통계 카드 그리드 -->
 	<div class="stats-grid">
-		<StatCard icon="💬" label="총 대화" value={stats.totalChats} iconBg="bg-teal" />
+		<StatCard icon="💬" label="총 대화" value={stats.totalChats} iconBg="bg-pistachio" />
 		<StatCard icon="📝" label="메시지" value={stats.totalMessages} iconBg="bg-blue" />
 		<StatCard icon="📄" label="HWP 처리" value={stats.hwpProcessed} iconBg="bg-purple" />
-		<StatCard icon="📧" label="이메일 생성" value={stats.emailsGenerated} iconBg="bg-amber" />
+		<StatCard icon="📧" label="이메일 생성" value={stats.emailsGenerated} iconBg="bg-golden" />
 	</div>
 	
 	<!-- 연동 도구 우선순위 -->
@@ -196,7 +196,7 @@
 	<div class="cta-card">
 		<div class="cta-content">
 			<div class="cta-decoration">
-				<div class="cta-icon">🦞</div>
+				<div class="cta-icon">🦀</div>
 			</div>
 			<div class="cta-text">
 				<span class="cta-label">Don't forget!</span>
@@ -233,14 +233,14 @@
 	
 	.progress-bar-container {
 		height: 12px;
-		background: rgba(0, 0, 0, 0.06);
+		background: rgba(0, 0, 0, 0.3);
 		border-radius: 6px;
 		overflow: hidden;
 	}
 	
 	.progress-bar {
 		height: 100%;
-		background: linear-gradient(90deg, #14b8a6, #06b6d4);
+		background: linear-gradient(90deg, #4a7c59, #D4A574);
 		border-radius: 6px;
 		transition: width 0.5s ease;
 	}
@@ -253,13 +253,13 @@
 	
 	.progress-text {
 		font-size: 0.9rem;
-		color: #64748b;
+		color: #D7CCC8;
 	}
 	
 	.progress-percent {
 		font-size: 1.25rem;
 		font-weight: 700;
-		color: #0d9488;
+		color: #D4A574;
 	}
 	
 	.milestone-badge {
@@ -267,24 +267,24 @@
 		align-items: center;
 		gap: 0.75rem;
 		padding: 0.75rem 1rem;
-		background: rgba(20, 184, 166, 0.08);
-		border: 1px solid rgba(20, 184, 166, 0.15);
+		background: rgba(74, 124, 89, 0.2);
+		border: 1px solid rgba(74, 124, 89, 0.3);
 		border-radius: 12px;
 		width: fit-content;
 	}
 	
 	.milestone-label {
 		font-size: 0.8rem;
-		color: #64748b;
+		color: #BCAAA4;
 	}
 	
 	.milestone-value {
 		font-size: 0.9rem;
 		font-weight: 600;
-		color: #0d9488;
+		color: #D4A574;
 	}
 	
-	/* Table styles - Light theme */
+	/* Table styles - Dark theme */
 	.glass-table {
 		width: 100%;
 		border-collapse: separate;
@@ -296,16 +296,16 @@
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		color: #94a3b8;
+		color: #BCAAA4;
 		text-align: left;
 		padding: 0.5rem 1rem;
 	}
 	
 	.glass-table td {
-		background: rgba(255, 255, 255, 0.5);
+		background: rgba(74, 124, 89, 0.1);
 		padding: 0.875rem 1rem;
 		font-size: 0.9rem;
-		color: #475569;
+		color: #D7CCC8;
 	}
 	
 	.glass-table tr td:first-child {
@@ -318,10 +318,10 @@
 	
 	.tool-name {
 		font-weight: 500;
-		color: #1e293b;
+		color: #FFF8E1;
 	}
 	
-	/* Priority badges - Light theme */
+	/* Priority badges - Dark theme */
 	.priority-badge {
 		display: inline-block;
 		padding: 0.25rem 0.5rem;
@@ -335,21 +335,21 @@
 		font-size: 0.7rem;
 	}
 	
-	.priority-p0 { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
-	.priority-p1 { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
-	.priority-p2 { background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
-	.priority-p3 { background: #f3f4f6; color: #6b7280; border: 1px solid #e5e7eb; }
+	.priority-p0 { background: rgba(229, 115, 115, 0.2); color: #E57373; border: 1px solid rgba(229, 115, 115, 0.3); }
+	.priority-p1 { background: rgba(255, 183, 77, 0.2); color: #FFB74D; border: 1px solid rgba(255, 183, 77, 0.3); }
+	.priority-p2 { background: rgba(100, 181, 246, 0.2); color: #64B5F6; border: 1px solid rgba(100, 181, 246, 0.3); }
+	.priority-p3 { background: rgba(188, 170, 164, 0.2); color: #BCAAA4; border: 1px solid rgba(188, 170, 164, 0.3); }
 	
-	/* Status colors - Light theme */
-	.status-done { color: #059669; font-weight: 600; }
-	.status-planned { color: #d97706; font-weight: 600; }
-	.status-future { color: #2563eb; font-weight: 600; }
-	.status-blocked { color: #dc2626; font-weight: 600; }
+	/* Status colors - Dark theme */
+	.status-done { color: #81C784; font-weight: 600; }
+	.status-planned { color: #FFB74D; font-weight: 600; }
+	.status-future { color: #64B5F6; font-weight: 600; }
+	.status-blocked { color: #E57373; font-weight: 600; }
 	
 	/* Bar containers */
 	.bar-container {
 		height: 6px;
-		background: rgba(0, 0, 0, 0.06);
+		background: rgba(0, 0, 0, 0.3);
 		border-radius: 3px;
 		overflow: hidden;
 		min-width: 60px;
@@ -361,11 +361,11 @@
 	}
 	
 	.usage-bar {
-		background: linear-gradient(90deg, #14b8a6, #06b6d4);
+		background: linear-gradient(90deg, #4a7c59, #6b9b7a);
 	}
 	
 	.difficulty-bar {
-		background: linear-gradient(90deg, #22c55e, #eab308, #ef4444);
+		background: linear-gradient(90deg, #81C784, #FFB74D, #E57373);
 	}
 	
 	/* Features list */
@@ -383,23 +383,23 @@
 		gap: 0.75rem;
 		align-items: center;
 		padding: 0.625rem 0.875rem;
-		background: rgba(255, 255, 255, 0.5);
+		background: rgba(74, 124, 89, 0.1);
 		border-radius: 10px;
 		font-size: 0.875rem;
 	}
 	
 	.feature-id {
 		font-family: 'SF Mono', Monaco, monospace;
-		color: #94a3b8;
+		color: #BCAAA4;
 		font-size: 0.75rem;
 	}
 	
 	.feature-name {
-		color: #1e293b;
+		color: #FFF8E1;
 	}
 	
 	.feature-effort {
-		color: #94a3b8;
+		color: #BCAAA4;
 		font-size: 0.75rem;
 		text-align: right;
 	}
@@ -421,40 +421,40 @@
 		flex-direction: column;
 		gap: 0.25rem;
 		padding: 1rem;
-		background: rgba(255, 255, 255, 0.5);
+		background: rgba(74, 124, 89, 0.1);
 		border-radius: 12px;
 	}
 	
 	.decision-date {
 		font-family: 'SF Mono', Monaco, monospace;
 		font-size: 0.75rem;
-		color: #94a3b8;
+		color: #BCAAA4;
 	}
 	
 	.decision-text {
 		font-weight: 500;
-		color: #1e293b;
+		color: #FFF8E1;
 		font-size: 0.9rem;
 	}
 	
 	.decision-reason {
 		font-size: 0.8rem;
-		color: #64748b;
+		color: #D7CCC8;
 	}
 	
-	/* CTA Card - Light theme with accent */
+	/* CTA Card - Dubai Crab themed */
 	.cta-card {
 		grid-column: 1 / -1;
-		background: linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(6, 182, 212, 0.08));
+		background: linear-gradient(135deg, rgba(74, 124, 89, 0.3), rgba(212, 165, 116, 0.15));
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
-		border: 1px solid rgba(20, 184, 166, 0.2);
+		border: 1px solid rgba(212, 165, 116, 0.3);
 		border-radius: 20px;
 		padding: 1.5rem 2rem;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		box-shadow: 0 8px 32px rgba(20, 184, 166, 0.08);
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 	}
 	
 	.cta-content {
@@ -469,7 +469,7 @@
 	
 	.cta-icon {
 		font-size: 3rem;
-		filter: drop-shadow(0 4px 12px rgba(20, 184, 166, 0.3));
+		filter: drop-shadow(0 4px 12px rgba(212, 165, 116, 0.4));
 	}
 	
 	.cta-text {
@@ -482,33 +482,33 @@
 		font-size: 0.8rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
-		color: #64748b;
+		color: #BCAAA4;
 	}
 	
 	.cta-text h3 {
 		font-size: 1.25rem;
 		font-weight: 600;
-		color: #1e293b;
+		color: #FFF8E1;
 		margin: 0;
 	}
 	
 	.cta-button {
 		padding: 0.75rem 1.5rem;
-		background: linear-gradient(135deg, #14b8a6, #0d9488);
+		background: linear-gradient(135deg, #D4A574, #B8860B);
 		border: none;
 		border-radius: 12px;
-		color: white;
+		color: #3E2723;
 		text-decoration: none;
-		font-weight: 500;
+		font-weight: 600;
 		font-size: 0.9rem;
 		transition: all 0.2s ease;
-		box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
+		box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
 	}
 	
 	.cta-button:hover {
-		background: linear-gradient(135deg, #0d9488, #0f766e);
+		background: linear-gradient(135deg, #B8860B, #D4A574);
 		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(20, 184, 166, 0.35);
+		box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
 	}
 	
 	/* Responsive */

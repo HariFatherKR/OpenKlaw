@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-	<title>OpenKlaw - 로컬 AI 비서</title>
+	<title>Dubai Crab - 로컬 AI 비서</title>
 </svelte:head>
 
 <Header title="채팅" subtitle="로컬 AI 비서와 대화하세요" userName="User" />

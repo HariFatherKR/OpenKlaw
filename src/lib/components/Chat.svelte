@@ -40,7 +40,7 @@
 			messages = [{
 				id: 'welcome',
 				role: 'assistant',
-				content: '안녕하세요! 👋 OpenKlaw입니다.\n\n' +
+				content: '안녕하세요! 🦀 Dubai Crab입니다.\n\n' +
 					'무엇을 도와드릴까요?\n\n' +
 					'- 📧 이메일 작성: "~에게 ~내용으로 이메일 써줘"\n' +
 					'- 📄 문서 요약: 파일을 드래그하거나 텍스트를 붙여넣기\n' +
@@ -176,7 +176,7 @@
 		{#each messages as message (message.id)}
 			<div class="message {message.role}">
 				<div class="message-avatar">
-					{message.role === 'user' ? '👤' : '🦞'}
+					{message.role === 'user' ? '👤' : '🦀'}
 				</div>
 				<div class="message-content">
 					<pre>{message.content}</pre>
@@ -186,7 +186,7 @@
 		
 		{#if isLoading}
 			<div class="message assistant">
-				<div class="message-avatar">🦞</div>
+				<div class="message-avatar">🦀</div>
 				<div class="message-content">
 					<span class="typing-indicator">
 						<span></span>
@@ -232,14 +232,14 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		/* Light glassmorphism */
-		background: rgba(255, 255, 255, 0.6);
+		/* Dark pistachio glassmorphism */
+		background: rgba(74, 124, 89, 0.15);
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
-		border: 1px solid rgba(255, 255, 255, 0.8);
+		border: 1px solid rgba(74, 124, 89, 0.25);
 		border-radius: 20px;
 		overflow: hidden;
-		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 	}
 	
 	.chat-container {
@@ -276,8 +276,8 @@
 		width: 40px;
 		height: 40px;
 		border-radius: 12px;
-		background: rgba(255, 255, 255, 0.8);
-		border: 1px solid rgba(0, 0, 0, 0.06);
+		background: rgba(74, 124, 89, 0.2);
+		border: 1px solid rgba(74, 124, 89, 0.3);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -286,22 +286,22 @@
 	}
 	
 	.message.user .message-avatar {
-		background: linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(6, 182, 212, 0.1));
-		border-color: rgba(20, 184, 166, 0.2);
+		background: linear-gradient(135deg, rgba(212, 165, 116, 0.3), rgba(184, 134, 11, 0.2));
+		border-color: rgba(212, 165, 116, 0.4);
 	}
 	
 	.message-content {
-		background: rgba(255, 255, 255, 0.7);
+		background: rgba(74, 124, 89, 0.15);
 		padding: 1rem 1.25rem;
 		border-radius: 16px;
-		border: 1px solid rgba(0, 0, 0, 0.04);
+		border: 1px solid rgba(74, 124, 89, 0.2);
 		max-width: 100%;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 	}
 	
 	.message.user .message-content {
-		background: linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(6, 182, 212, 0.08));
-		border-color: rgba(20, 184, 166, 0.15);
+		background: linear-gradient(135deg, rgba(212, 165, 116, 0.2), rgba(184, 134, 11, 0.15));
+		border-color: rgba(212, 165, 116, 0.3);
 	}
 	
 	.message-content pre {
@@ -311,13 +311,13 @@
 		font-family: inherit;
 		font-size: 0.95rem;
 		line-height: 1.6;
-		color: #1e293b;
+		color: #FFF8E1;
 	}
 	
 	.chat-input-container {
 		padding: 1rem 1.5rem 1.5rem;
-		background: rgba(255, 255, 255, 0.4);
-		border-top: 1px solid rgba(0, 0, 0, 0.04);
+		background: rgba(45, 90, 63, 0.2);
+		border-top: 1px solid rgba(74, 124, 89, 0.2);
 	}
 	
 	.input-row {
@@ -330,16 +330,16 @@
 		flex: 1;
 		display: flex;
 		gap: 0.75rem;
-		background: rgba(255, 255, 255, 0.8);
-		border: 1px solid rgba(0, 0, 0, 0.08);
+		background: rgba(74, 124, 89, 0.15);
+		border: 1px solid rgba(74, 124, 89, 0.25);
 		border-radius: 16px;
 		padding: 0.5rem;
 		transition: all 0.2s ease;
 	}
 	
 	.input-wrapper:focus-within {
-		border-color: rgba(20, 184, 166, 0.4);
-		box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.08);
+		border-color: rgba(212, 165, 116, 0.5);
+		box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
 	}
 	
 	.chat-input-container textarea {
@@ -348,7 +348,7 @@
 		border: none;
 		border-radius: 12px;
 		background: transparent;
-		color: #1e293b;
+		color: #FFF8E1;
 		font-size: 0.95rem;
 		resize: none;
 		outline: none;
@@ -356,7 +356,7 @@
 	}
 	
 	.chat-input-container textarea::placeholder {
-		color: #94a3b8;
+		color: #BCAAA4;
 	}
 	
 	.chat-input-container textarea:disabled {
@@ -367,20 +367,20 @@
 		padding: 0.75rem 1.25rem;
 		border: none;
 		border-radius: 12px;
-		background: linear-gradient(135deg, #14b8a6, #0d9488);
-		color: white;
+		background: linear-gradient(135deg, #D4A574, #B8860B);
+		color: #3E2723;
 		font-size: 1.25rem;
 		cursor: pointer;
 		transition: all 0.2s ease;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		box-shadow: 0 4px 12px rgba(20, 184, 166, 0.25);
+		box-shadow: 0 4px 12px rgba(212, 165, 116, 0.3);
 	}
 	
 	.chat-input-container button:hover:not(:disabled) {
-		background: linear-gradient(135deg, #0d9488, #0f766e);
-		box-shadow: 0 6px 20px rgba(20, 184, 166, 0.35);
+		background: linear-gradient(135deg, #B8860B, #D4A574);
+		box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
 		transform: translateY(-1px);
 	}
 	
@@ -398,7 +398,7 @@
 	.typing-indicator span {
 		width: 8px;
 		height: 8px;
-		background: #14b8a6;
+		background: #D4A574;
 		border-radius: 50%;
 		animation: bounce 1.4s infinite;
 	}

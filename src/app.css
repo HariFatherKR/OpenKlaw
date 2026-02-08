@@ -3,26 +3,28 @@
 @tailwind utilities;
 
 :root {
-	/* CoachPro Style - Light Mint/Teal Theme */
-	--color-primary: #14b8a6;
-	--color-primary-hover: #0d9488;
-	--color-secondary: #06b6d4;
-	--color-accent: #10b981;
+	/* Dubai Crab Style - 두바이 쫀득 쿠키 테마 */
+	--color-primary: #4a7c59;
+	--color-primary-hover: #3d6b4f;
+	--color-primary-dark: #2d5a3f;
+	--color-secondary: #5D4037;
+	--color-accent: #D4A574;
+	--color-golden: #B8860B;
 	
-	/* Background gradient colors (Light) */
-	--gradient-start: #e6f5f3;
-	--gradient-mid: #d9ece9;
-	--gradient-end: #d4eaf5;
+	/* Background gradient colors (Dark Chocolate) */
+	--gradient-start: #3E2723;
+	--gradient-mid: #4E342E;
+	--gradient-end: #5D4037;
 	
-	/* Glass morphism (Light) */
-	--glass-bg: rgba(255, 255, 255, 0.6);
-	--glass-border: rgba(255, 255, 255, 0.8);
-	--glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+	/* Glass morphism (Pistachio Green) */
+	--glass-bg: rgba(74, 124, 89, 0.15);
+	--glass-border: rgba(74, 124, 89, 0.25);
+	--glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 	
-	/* Text colors (Dark for light theme) */
-	--color-text: #1e293b;
-	--color-text-secondary: #64748b;
-	--color-text-muted: #94a3b8;
+	/* Text colors (Cream/White for dark theme) */
+	--color-text: #FFF8E1;
+	--color-text-secondary: #D7CCC8;
+	--color-text-muted: #BCAAA4;
 }
 
 * {
@@ -36,55 +38,55 @@ body {
 	padding: 0;
 	min-height: 100vh;
 	
-	/* Soft mint/teal gradient background - CoachPro Style */
+	/* Dark Chocolate gradient background - Dubai Crab Style */
 	background: linear-gradient(
 		135deg,
-		#e6f5f3 0%,
-		#d9ece9 25%,
-		#cce4e7 50%,
-		#c5e1ec 75%,
-		#d4eaf5 100%
+		#3E2723 0%,
+		#4E342E 25%,
+		#5D4037 50%,
+		#4E342E 75%,
+		#3E2723 100%
 	);
 	background-attachment: fixed;
 	
-	/* Dark text for light theme */
+	/* Cream text for dark theme */
 	color: var(--color-text);
 }
 
-/* Light theme app layout */
+/* Dark theme app layout */
 .app-layout {
 	min-height: 100vh;
 	display: flex;
 	background: transparent;
 }
 
-/* Scrollbar styling (light theme) */
+/* Scrollbar styling (dark theme) */
 ::-webkit-scrollbar {
 	width: 8px;
 	height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-	background: rgba(0, 0, 0, 0.05);
+	background: rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: rgba(0, 0, 0, 0.15);
+	background: rgba(74, 124, 89, 0.5);
 	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: rgba(0, 0, 0, 0.25);
+	background: rgba(74, 124, 89, 0.7);
 }
 
 /* Selection */
 ::selection {
-	background: rgba(20, 184, 166, 0.2);
+	background: rgba(212, 165, 116, 0.3);
 	color: var(--color-text);
 }
 
-/* Glass card utility (Light) */
+/* Glass card utility (Dark/Pistachio) */
 .glass {
 	background: var(--glass-bg);
 	backdrop-filter: blur(20px);
@@ -94,17 +96,17 @@ body {
 	box-shadow: var(--glass-shadow);
 }
 
-/* Status colors (adjusted for light theme) */
-.status-done { color: #059669; }
-.status-planned { color: #d97706; }
-.status-future { color: #2563eb; }
-.status-blocked { color: #dc2626; }
+/* Status colors (adjusted for dark theme) */
+.status-done { color: #81C784; }
+.status-planned { color: #FFB74D; }
+.status-future { color: #64B5F6; }
+.status-blocked { color: #E57373; }
 
-/* Priority badges (light theme) */
-.priority-p0 { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
-.priority-p1 { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
-.priority-p2 { background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
-.priority-p3 { background: #f3f4f6; color: #6b7280; border: 1px solid #e5e7eb; }
+/* Priority badges (dark theme) */
+.priority-p0 { background: rgba(229, 115, 115, 0.2); color: #E57373; border: 1px solid rgba(229, 115, 115, 0.3); }
+.priority-p1 { background: rgba(255, 183, 77, 0.2); color: #FFB74D; border: 1px solid rgba(255, 183, 77, 0.3); }
+.priority-p2 { background: rgba(100, 181, 246, 0.2); color: #64B5F6; border: 1px solid rgba(100, 181, 246, 0.3); }
+.priority-p3 { background: rgba(188, 170, 164, 0.2); color: #BCAAA4; border: 1px solid rgba(188, 170, 164, 0.3); }
 
 /* Animations */
 @keyframes fadeIn {
@@ -127,7 +129,7 @@ body {
 
 /* Focus styles */
 :focus-visible {
-	outline: 2px solid var(--color-primary);
+	outline: 2px solid var(--color-accent);
 	outline-offset: 2px;
 }
 
@@ -136,7 +138,7 @@ a, button {
 	transition: all 0.2s ease;
 }
 
-/* Table styles for glass effect (Light) */
+/* Table styles for glass effect (Dark) */
 .glass-table {
 	width: 100%;
 	border-collapse: separate;
@@ -154,7 +156,7 @@ a, button {
 }
 
 .glass-table td {
-	background: rgba(255, 255, 255, 0.4);
+	background: rgba(74, 124, 89, 0.1);
 	padding: 1rem;
 	color: var(--color-text);
 }
