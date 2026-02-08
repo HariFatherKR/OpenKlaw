@@ -48,15 +48,37 @@
 	.sidebar {
 		width: 220px;
 		min-height: 100vh;
-		/* Light glassmorphism */
-		background: rgba(255, 255, 255, 0.5);
+		/* Light glassmorphism with depth */
+		background: rgba(255, 255, 255, 0.55);
 		backdrop-filter: blur(20px);
 		-webkit-backdrop-filter: blur(20px);
-		border-right: 1px solid rgba(255, 255, 255, 0.8);
+		border-right: 1px solid rgba(255, 255, 255, 0.9);
 		display: flex;
 		flex-direction: column;
 		padding: 1.5rem 1rem;
-		box-shadow: 4px 0 24px rgba(0, 0, 0, 0.04);
+		/* Multi-layer shadow for depth */
+		box-shadow: 
+			4px 0 8px rgba(0, 0, 0, 0.02),
+			8px 0 16px rgba(0, 0, 0, 0.03),
+			16px 0 32px rgba(0, 0, 0, 0.04),
+			inset -1px 0 0 rgba(255, 255, 255, 0.5);
+		position: relative;
+	}
+	
+	/* Subtle shimmer on sidebar */
+	.sidebar::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 150px;
+		background: linear-gradient(
+			180deg,
+			rgba(255, 255, 255, 0.4) 0%,
+			transparent 100%
+		);
+		pointer-events: none;
 	}
 	
 	.sidebar-header {
