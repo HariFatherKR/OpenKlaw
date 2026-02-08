@@ -23,13 +23,14 @@
 		{ id: 'F06', name: '대화 저장', priority: 'P0', status: 'Done', effort: 0.5 },
 		{ id: 'F07', name: '시스템 트레이', priority: 'P0', status: 'Done', effort: 0.5 },
 		{ id: 'F08', name: '엑셀/CSV 분석', priority: 'P1', status: 'Done', effort: 1 },
-		{ id: 'F09', name: '보고서 템플릿', priority: 'P1', status: 'Planned', effort: 0.5 },
-		{ id: 'F10', name: '빠른 작업 버튼', priority: 'P1', status: 'Planned', effort: 0.5 },
-		{ id: 'F11', name: '전역 단축키', priority: 'P1', status: 'Planned', effort: 0.5 },
-		{ id: 'F12', name: '다크 모드', priority: 'P1', status: 'Done', effort: 0.3 }
+		{ id: 'F09', name: '보고서 템플릿', priority: 'P1', status: 'Done', effort: 0.5 },
+		{ id: 'F10', name: '빠른 작업 버튼', priority: 'P1', status: 'Done', effort: 0.5 },
+		{ id: 'F11', name: '전역 단축키', priority: 'P1', status: 'Done', effort: 0.5 },
+		{ id: 'F12', name: '설정 페이지', priority: 'P2', status: 'Done', effort: 0.5 }
 	];
 	
 	const decisions = [
+		{ date: '2026-02-08', decision: 'MVP 전체 기능 완성 (12/12)', reason: '보고서 템플릿, 빠른 작업, 전역 단축키, 설정 페이지' },
 		{ date: '2026-02-08', decision: '엑셀/CSV 분석 구현 완료', reason: 'SheetJS + PapaParse 채택' },
 		{ date: '2026-02-07', decision: 'HWP P0 확정', reason: '유일한 차별점, 경쟁사 전무' },
 		{ date: '2026-02-07', decision: '이메일 P0 확정', reason: '높은 수요, 낮은 복잡도' },
@@ -108,7 +109,7 @@
 			</div>
 			<div class="milestone-badge">
 				<span class="milestone-label">현재 Phase</span>
-				<span class="milestone-value">Phase 10 - P1 기능 구현</span>
+				<span class="milestone-value">🎉 MVP 완성 - 12/12 기능</span>
 			</div>
 		</div>
 	</GlassCard>
