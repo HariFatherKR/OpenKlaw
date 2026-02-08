@@ -3,28 +3,56 @@
 @tailwind utilities;
 
 :root {
-	/* Dubai Crab Style - 두바이 쫀득 쿠키 테마 */
-	--color-primary: #4a7c59;
-	--color-primary-hover: #3d6b4f;
-	--color-primary-dark: #2d5a3f;
-	--color-secondary: #5D4037;
-	--color-accent: #D4A574;
-	--color-golden: #B8860B;
+	/* Dubai Crab Style - Soft UI Evolution + Glassmorphism (Dark Mode) */
+	/* WCAG AA+ compliant color system */
 	
-	/* Background gradient colors (Dark Chocolate) */
-	--gradient-start: #3E2723;
-	--gradient-mid: #4E342E;
-	--gradient-end: #5D4037;
+	/* Primary - Pistachio/Emerald Green */
+	--primary-50: #ECFDF5;
+	--primary-100: #D1FAE5;
+	--primary-200: #A7F3D0;
+	--primary-500: #10B981;
+	--primary-600: #059669;
+	--primary-700: #047857;
 	
-	/* Glass morphism (Pistachio Green) */
-	--glass-bg: rgba(74, 124, 89, 0.15);
-	--glass-border: rgba(74, 124, 89, 0.25);
-	--glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+	/* Secondary - Chocolate Brown */
+	--secondary-50: #FAFAF9;
+	--secondary-100: #F5F5F4;
+	--secondary-700: #44403C;
+	--secondary-800: #292524;
+	--secondary-900: #1C1917;
 	
-	/* Text colors (Cream/White for dark theme) */
-	--color-text: #FFF8E1;
-	--color-text-secondary: #D7CCC8;
-	--color-text-muted: #BCAAA4;
+	/* Accent - Golden/Amber */
+	--accent-400: #FBBF24;
+	--accent-500: #F59E0B;
+	--accent-600: #D97706;
+	
+	/* Semantic aliases */
+	--color-primary: var(--primary-500);
+	--color-primary-hover: var(--primary-600);
+	--color-primary-dark: var(--primary-700);
+	--color-accent: var(--accent-500);
+	--color-accent-light: var(--accent-400);
+	--color-accent-dark: var(--accent-600);
+	
+	/* Background */
+	--bg-base: var(--secondary-900);
+	--bg-elevated: var(--secondary-800);
+	
+	/* Glass morphism */
+	--glass-bg: rgba(16, 185, 129, 0.1);
+	--glass-border: rgba(16, 185, 129, 0.2);
+	--glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+	
+	/* Text colors */
+	--text-primary: #FAFAF9;
+	--text-secondary: #A8A29E;
+	--text-muted: #78716C;
+	
+	/* Status */
+	--success: #22C55E;
+	--warning: #FBBF24;
+	--error: #EF4444;
+	--info: #3B82F6;
 }
 
 * {
@@ -32,25 +60,21 @@
 }
 
 body {
-	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: 'Pretendard', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 	margin: 0;
 	padding: 0;
 	min-height: 100vh;
 	
-	/* Dark Chocolate gradient background - Dubai Crab Style */
+	/* Dark gradient background */
 	background: linear-gradient(
 		135deg,
-		#3E2723 0%,
-		#4E342E 25%,
-		#5D4037 50%,
-		#4E342E 75%,
-		#3E2723 100%
+		var(--secondary-900) 0%,
+		var(--secondary-800) 50%,
+		var(--secondary-900) 100%
 	);
 	background-attachment: fixed;
 	
-	/* Cream text for dark theme */
-	color: var(--color-text);
+	color: var(--text-primary);
 }
 
 /* Dark theme app layout */
@@ -72,41 +96,101 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: rgba(74, 124, 89, 0.5);
+	background: rgba(16, 185, 129, 0.4);
 	border-radius: 4px;
+	transition: background 200ms ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: rgba(74, 124, 89, 0.7);
+	background: rgba(16, 185, 129, 0.6);
 }
 
 /* Selection */
 ::selection {
-	background: rgba(212, 165, 116, 0.3);
-	color: var(--color-text);
+	background: rgba(16, 185, 129, 0.3);
+	color: var(--text-primary);
 }
 
-/* Glass card utility (Dark/Pistachio) */
+/* Glass card utility */
 .glass {
 	background: var(--glass-bg);
-	backdrop-filter: blur(20px);
-	-webkit-backdrop-filter: blur(20px);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
 	border: 1px solid var(--glass-border);
-	border-radius: 20px;
+	border-radius: 12px;
 	box-shadow: var(--glass-shadow);
 }
 
-/* Status colors (adjusted for dark theme) */
-.status-done { color: #81C784; }
-.status-planned { color: #FFB74D; }
-.status-future { color: #64B5F6; }
-.status-blocked { color: #E57373; }
+.glass-dark {
+	background: rgba(28, 25, 23, 0.8);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(68, 64, 60, 0.3);
+	border-radius: 12px;
+}
 
-/* Priority badges (dark theme) */
-.priority-p0 { background: rgba(229, 115, 115, 0.2); color: #E57373; border: 1px solid rgba(229, 115, 115, 0.3); }
-.priority-p1 { background: rgba(255, 183, 77, 0.2); color: #FFB74D; border: 1px solid rgba(255, 183, 77, 0.3); }
-.priority-p2 { background: rgba(100, 181, 246, 0.2); color: #64B5F6; border: 1px solid rgba(100, 181, 246, 0.3); }
-.priority-p3 { background: rgba(188, 170, 164, 0.2); color: #BCAAA4; border: 1px solid rgba(188, 170, 164, 0.3); }
+/* Button base styles */
+.btn {
+	cursor: pointer;
+	border-radius: 8px;
+	font-weight: 500;
+	transition: all 200ms ease;
+}
+
+.btn:focus-visible {
+	outline: 2px solid var(--primary-500);
+	outline-offset: 2px;
+}
+
+.btn-primary {
+	background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
+	color: white;
+}
+
+.btn-primary:hover {
+	background: linear-gradient(135deg, var(--primary-700), var(--primary-600));
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-accent {
+	background: linear-gradient(135deg, var(--accent-600), var(--accent-500));
+	color: var(--secondary-900);
+}
+
+.btn-accent:hover {
+	background: linear-gradient(135deg, var(--accent-500), var(--accent-400));
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* Status colors */
+.status-done { color: var(--success); }
+.status-planned { color: var(--warning); }
+.status-future { color: var(--info); }
+.status-blocked { color: var(--error); }
+
+/* Priority badges */
+.priority-p0 { 
+	background: rgba(239, 68, 68, 0.15); 
+	color: var(--error); 
+	border: 1px solid rgba(239, 68, 68, 0.25); 
+}
+.priority-p1 { 
+	background: rgba(251, 191, 36, 0.15); 
+	color: var(--warning); 
+	border: 1px solid rgba(251, 191, 36, 0.25); 
+}
+.priority-p2 { 
+	background: rgba(59, 130, 246, 0.15); 
+	color: var(--info); 
+	border: 1px solid rgba(59, 130, 246, 0.25); 
+}
+.priority-p3 { 
+	background: rgba(120, 113, 108, 0.15); 
+	color: var(--text-muted); 
+	border: 1px solid rgba(120, 113, 108, 0.25); 
+}
 
 /* Animations */
 @keyframes fadeIn {
@@ -115,7 +199,7 @@ body {
 }
 
 .animate-fade-in {
-	animation: fadeIn 0.3s ease-out;
+	animation: fadeIn 300ms ease-out;
 }
 
 @keyframes pulse-soft {
@@ -129,16 +213,17 @@ body {
 
 /* Focus styles */
 :focus-visible {
-	outline: 2px solid var(--color-accent);
+	outline: 2px solid var(--primary-500);
 	outline-offset: 2px;
 }
 
 /* Smooth transitions */
 a, button {
-	transition: all 0.2s ease;
+	transition: all 200ms ease;
+	cursor: pointer;
 }
 
-/* Table styles for glass effect (Dark) */
+/* Table styles for glass effect */
 .glass-table {
 	width: 100%;
 	border-collapse: separate;
@@ -150,15 +235,20 @@ a, button {
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-	color: var(--color-text-muted);
+	color: var(--text-muted);
 	text-align: left;
 	padding: 0.75rem 1rem;
 }
 
 .glass-table td {
-	background: rgba(74, 124, 89, 0.1);
+	background: rgba(16, 185, 129, 0.08);
 	padding: 1rem;
-	color: var(--color-text);
+	color: var(--text-primary);
+	transition: background 200ms ease;
+}
+
+.glass-table tr:hover td {
+	background: rgba(16, 185, 129, 0.12);
 }
 
 .glass-table tr td:first-child {
@@ -167,4 +257,14 @@ a, button {
 
 .glass-table tr td:last-child {
 	border-radius: 0 12px 12px 0;
+}
+
+/* Card hover effects */
+.card-hover {
+	transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.card-hover:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }

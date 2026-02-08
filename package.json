@@ -71,7 +71,11 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^2.0.0",
+    "@tauri-apps/plugin-fs": "^2.4.5",
+    "jszip": "^3.10.1",
     "papaparse": "^5.5.3",
+    "pdf-parse": "^2.4.5",
+    "pptx-parser": "1.1.7-beta.9",
     "xlsx": "^0.18.5"
   }
 }

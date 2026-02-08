@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import { chat, isHealthy, type Message, DEFAULT_MODEL, SYSTEM_PROMPT } from '$lib/ollama';
 	import { incrementMessages, incrementChats, incrementEmails, incrementHwp } from '$lib/stores/stats-store';
+	import { parseFile, isSupported, SUPPORTED_EXTENSIONS, formatFileSize } from '$lib/file-parser';
 	import QuickActions from './QuickActions.svelte';
 	import ReportTemplateModal from './ReportTemplateModal.svelte';
 	import type { QuickAction } from './QuickActions.svelte';
@@ -22,6 +23,8 @@
 	let showReportModal = $state(false);
 	let textareaRef: HTMLTextAreaElement;
 	let isDragging = $state(false);
+	let dragCounter = 0;  // 깜빡임 방지용 카운터
+	let unlistenDrop: (() => void) | null = null;
 	
 	onMount(async () => {
 		isConnected = await isHealthy();
@@ -50,7 +53,190 @@
 				timestamp: new Date()
 			}];
 		}
+		
+		// Tauri 드래그앤드롭 이벤트 리스너
+		try {
+			const { getCurrentWebview } = await import('@tauri-apps/api/webview');
+			const webview = getCurrentWebview();
+			
+			unlistenDrop = await webview.onDragDropEvent(async (event) => {
+				if (event.payload.type === 'over') {
+					isDragging = true;
+				} else if (event.payload.type === 'drop') {
+					isDragging = false;
+					const paths = event.payload.paths;
+					if (paths && paths.length > 0) {
+						await handleTauriFileDrop(paths[0]);
+					}
+				} else if (event.payload.type === 'cancel') {
+					isDragging = false;
+				}
+			});
+		} catch (e) {
+			// 브라우저 환경에서는 Tauri API 없음
+			console.log('Tauri API not available, using browser drag-drop');
+		}
 	});
+	
+	onDestroy(() => {
+		if (unlistenDrop) {
+			unlistenDrop();
+		}
+	});
+	
+	// Tauri 파일 드롭 처리
+	async function handleTauriFileDrop(filePath: string) {
+		if (!isConnected || isLoading) return;
+		
+		const fileName = filePath.split('/').pop() || filePath.split('\\').pop() || 'unknown';
+		const ext = fileName.split('.').pop()?.toLowerCase() || '';
+		
+		if (!SUPPORTED_EXTENSIONS.includes(ext)) {
+			const errorMessage: ChatMessage = {
+				id: crypto.randomUUID(),
+				role: 'assistant',
+				content: `⚠️ 지원하지 않는 파일 형식입니다: .${ext}\n\n지원 형식: ${SUPPORTED_EXTENSIONS.join(', ')}`,
+				timestamp: new Date()
+			};
+			messages = [...messages, errorMessage];
+			return;
+		}
+		
+		try {
+			// Tauri fs API로 파일 읽기
+			const { readFile, readTextFile } = await import('@tauri-apps/plugin-fs');
+			
+			let fileContent = '';
+			let fileSize = 0;
+			
+			if (['txt', 'md', 'csv', 'json'].includes(ext)) {
+				fileContent = await readTextFile(filePath);
+				fileSize = new TextEncoder().encode(fileContent).length;
+			} else if (['xlsx', 'xls'].includes(ext)) {
+				const bytes = await readFile(filePath);
+				fileSize = bytes.length;
+				// xlsx 파싱
+				const XLSX = await import('xlsx');
+				const workbook = XLSX.read(bytes, { type: 'array' });
+				const sheetNames = workbook.SheetNames;
+				
+				fileContent = '';
+				for (const sheetName of sheetNames.slice(0, 3)) {
+					const sheet = workbook.Sheets[sheetName];
+					const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 }) as string[][];
+					fileContent += `\n## 📊 시트: ${sheetName}\n\n`;
+					
+					if (jsonData.length > 0) {
+						const headers = jsonData[0] || [];
+						fileContent += '| ' + headers.map(h => String(h || '')).join(' | ') + ' |\n';
+						fileContent += '| ' + headers.map(() => '---').join(' | ') + ' |\n';
+						for (let i = 1; i < Math.min(jsonData.length, 20); i++) {
+							const row = jsonData[i] || [];
+							fileContent += '| ' + row.map(cell => String(cell || '')).join(' | ') + ' |\n';
+						}
+						if (jsonData.length > 20) fileContent += `\n... (${jsonData.length - 20}행 생략)\n`;
+					}
+				}
+			} else if (['hwp', 'hwpx'].includes(ext)) {
+				const bytes = await readFile(filePath);
+				fileSize = bytes.length;
+				fileContent = `📝 한글 파일 (${formatFileSize(fileSize)})\n\n⚠️ HWP 파싱은 Python 서비스 연동 후 지원 예정`;
+				incrementHwp();
+			} else if (['pdf'].includes(ext)) {
+				const bytes = await readFile(filePath);
+				fileSize = bytes.length;
+				fileContent = `📄 PDF 파일 (${formatFileSize(fileSize)})\n\n⚠️ PDF 파싱은 서버 연동 후 지원 예정`;
+			} else if (['ppt', 'pptx'].includes(ext)) {
+				const bytes = await readFile(filePath);
+				fileSize = bytes.length;
+				
+				if (ext === 'pptx') {
+					const JSZip = (await import('jszip')).default;
+					const zip = await JSZip.loadAsync(bytes);
+					fileContent = '📊 프레젠테이션 내용:\n\n';
+					
+					const slideFiles = Object.keys(zip.files)
+						.filter(name => name.match(/ppt\/slides\/slide\d+\.xml/))
+						.sort();
+					
+					let slideNum = 0;
+					for (const slidePath of slideFiles.slice(0, 10)) {
+						slideNum++;
+						const slideXml = await zip.file(slidePath)?.async('string');
+						if (slideXml) {
+							const textMatches = slideXml.match(/<a:t>([^<]*)<\/a:t>/g);
+							if (textMatches) {
+								const texts = textMatches.map(m => m.replace(/<\/?a:t>/g, '')).filter(t => t.trim()).join(' ');
+								if (texts.trim()) fileContent += `### 슬라이드 ${slideNum}\n${texts}\n\n`;
+							}
+						}
+					}
+				} else {
+					fileContent = `📊 PPT 파일 (${formatFileSize(fileSize)})\n\n⚠️ 구버전 PPT는 PPTX로 변환 후 업로드해주세요`;
+				}
+			}
+			
+			// 사용자 메시지 추가
+			const userMessage: ChatMessage = {
+				id: crypto.randomUUID(),
+				role: 'user',
+				content: `📎 파일: ${fileName}\n\n${fileContent.slice(0, 3000)}${fileContent.length > 3000 ? '\n\n...(내용 생략)' : ''}`,
+				timestamp: new Date(),
+				file: { name: fileName, type: ext, size: fileSize }
+			};
+			
+			messages = [...messages, userMessage];
+			incrementMessages();
+			scrollToBottom();
+			
+			// AI 분석 요청
+			await analyzeFileContent(fileName, fileContent);
+			
+		} catch (error) {
+			console.error('Tauri file read error:', error);
+			const errorMessage: ChatMessage = {
+				id: crypto.randomUUID(),
+				role: 'assistant',
+				content: `❌ 파일을 읽는 중 오류가 발생했습니다: ${error}`,
+				timestamp: new Date()
+			};
+			messages = [...messages, errorMessage];
+		}
+	}
+	
+	// AI 파일 분석
+	async function analyzeFileContent(fileName: string, content: string) {
+		isLoading = true;
+		
+		const assistantMessage: ChatMessage = {
+			id: crypto.randomUUID(),
+			role: 'assistant',
+			content: '',
+			timestamp: new Date()
+		};
+		messages = [...messages, assistantMessage];
+		
+		try {
+			const apiMessages: Message[] = [
+				{ role: 'system', content: SYSTEM_PROMPT },
+				{ role: 'user', content: `다음 파일의 내용을 분석하고 요약해주세요:\n\n파일명: ${fileName}\n\n${content.slice(0, 5000)}` }
+			];
+			
+			for await (const chunk of chat(DEFAULT_MODEL, apiMessages)) {
+				if (chunk.message?.content) {
+					assistantMessage.content += chunk.message.content;
+					messages = [...messages.slice(0, -1), { ...assistantMessage }];
+					scrollToBottom();
+				}
+			}
+		} catch (error) {
+			assistantMessage.content = '❌ AI 분석 중 오류가 발생했습니다.';
+			messages = [...messages.slice(0, -1), { ...assistantMessage }];
+		} finally {
+			isLoading = false;
+			scrollToBottom();
+		}
+	}
 	
 	function scrollToBottom() {
 		if (chatContainer) {
@@ -172,23 +358,26 @@
 		showReportModal = false;
 	}
 	
-	// Drag and Drop handlers
+	// Drag and Drop handlers (브라우저용 - 깜빡임 방지)
 	function handleDragEnter(e: DragEvent) {
 		e.preventDefault();
 		e.stopPropagation();
+		dragCounter++;
 		isDragging = true;
 	}
 	
 	function handleDragOver(e: DragEvent) {
 		e.preventDefault();
 		e.stopPropagation();
-		isDragging = true;
 	}
 	
 	function handleDragLeave(e: DragEvent) {
 		e.preventDefault();
 		e.stopPropagation();
-		isDragging = false;
+		dragCounter--;
+		if (dragCounter === 0) {
+			isDragging = false;
+		}
 	}
 	
 	async function handleDrop(e: DragEvent) {

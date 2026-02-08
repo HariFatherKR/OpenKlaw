@@ -4,82 +4,100 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				// Dubai Crab style colors (두바이 쫀득 쿠키 테마)
+				// Dubai Crab - Soft UI Evolution + Glassmorphism (Dark Mode)
+				// WCAG AA+ compliant colors
 				primary: {
-					DEFAULT: '#4a7c59',
-					hover: '#3d6b4f',
-					dark: '#2d5a3f',
-					light: '#6b9b7a',
-					50: '#e8f5e9',
-					100: '#c8e6c9',
-					500: '#4a7c59',
-					600: '#3d6b4f',
-					700: '#2d5a3f'
+					DEFAULT: '#10B981',
+					hover: '#059669',
+					dark: '#047857',
+					light: '#34D399',
+					50: '#ECFDF5',
+					100: '#D1FAE5',
+					200: '#A7F3D0',
+					500: '#10B981',  // 메인 에메랄드 그린
+					600: '#059669',
+					700: '#047857'
 				},
 				secondary: {
-					DEFAULT: '#5D4037',
-					light: '#795548',
-					dark: '#4E342E',
-					darker: '#3E2723'
+					DEFAULT: '#44403C',
+					light: '#78716C',
+					dark: '#292524',
+					darker: '#1C1917',
+					50: '#FAFAF9',
+					100: '#F5F5F4',
+					700: '#44403C',
+					800: '#292524',
+					900: '#1C1917'  // 배경용
 				},
 				accent: {
-					DEFAULT: '#D4A574',
-					light: '#E8C9A0',
-					dark: '#C49A6C',
-					golden: '#B8860B'
+					DEFAULT: '#F59E0B',
+					light: '#FBBF24',
+					dark: '#D97706',
+					golden: '#F59E0B',
+					400: '#FBBF24',
+					500: '#F59E0B',
+					600: '#D97706'
 				},
 				
-				// Dark chocolate backgrounds
+				// Dark backgrounds
 				bg: {
-					DEFAULT: '#3E2723',
-					light: '#4E342E',
-					card: 'rgba(74, 124, 89, 0.15)'
+					DEFAULT: '#1C1917',
+					light: '#292524',
+					card: 'rgba(16, 185, 129, 0.1)'
 				},
 				
-				// Glass morphism (피스타치오 그린)
+				// Glass morphism (Pistachio Green - improved)
 				glass: {
-					bg: 'rgba(74, 124, 89, 0.2)',
-					border: 'rgba(74, 124, 89, 0.3)',
-					hover: 'rgba(74, 124, 89, 0.3)'
+					bg: 'rgba(16, 185, 129, 0.1)',
+					border: 'rgba(16, 185, 129, 0.2)',
+					hover: 'rgba(16, 185, 129, 0.15)'
 				},
 				
 				// Text colors (cream/white for dark theme)
 				text: {
-					DEFAULT: '#FFF8E1',
-					secondary: '#D7CCC8',
-					muted: '#BCAAA4'
+					DEFAULT: '#FAFAF9',
+					secondary: '#A8A29E',
+					muted: '#78716C'
 				},
 				
 				// Status colors
-				success: '#81C784',
-				warning: '#FFB74D',
-				error: '#E57373',
-				info: '#64B5F6'
+				success: '#22C55E',
+				warning: '#FBBF24',
+				error: '#EF4444',
+				info: '#3B82F6'
 			},
 			borderRadius: {
-				'2xl': '1rem',
-				'3xl': '1.5rem',
-				'4xl': '2rem'
+				'lg': '8px',
+				'xl': '12px',
+				'2xl': '16px',
+				'3xl': '20px',
+				'4xl': '24px'
 			},
 			boxShadow: {
-				'glass': '0 8px 32px rgba(0, 0, 0, 0.3)',
-				'glass-lg': '0 16px 48px rgba(0, 0, 0, 0.4)',
-				'glass-hover': '0 12px 40px rgba(0, 0, 0, 0.35)',
-				'glow': '0 0 20px rgba(212, 165, 116, 0.3)',
-				'glow-lg': '0 0 40px rgba(212, 165, 116, 0.4)',
-				'soft': '0 2px 8px rgba(0, 0, 0, 0.2)'
+				'soft': '0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -2px rgba(0,0,0,0.3)',
+				'soft-lg': '0 10px 15px -3px rgba(0,0,0,0.3), 0 4px 6px -4px rgba(0,0,0,0.3)',
+				'glass': '0 8px 32px rgba(0, 0, 0, 0.4)',
+				'glass-lg': '0 16px 48px rgba(0, 0, 0, 0.5)',
+				'glass-hover': '0 12px 40px rgba(0, 0, 0, 0.45)',
+				'glow': '0 0 20px rgba(16, 185, 129, 0.3)',
+				'glow-lg': '0 0 40px rgba(16, 185, 129, 0.4)',
+				'glow-accent': '0 0 20px rgba(245, 158, 11, 0.3)'
 			},
 			backdropBlur: {
 				'xs': '2px',
 				'3xl': '64px'
 			},
 			fontFamily: {
-				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+				sans: ['Pretendard', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif']
 			},
 			backgroundImage: {
-				'gradient-chocolate': 'linear-gradient(135deg, #3E2723 0%, #4E342E 25%, #5D4037 50%, #4E342E 75%, #3E2723 100%)',
-				'gradient-pistachio': 'linear-gradient(135deg, #2d5a3f 0%, #3d6b4f 50%, #4a7c59 100%)',
-				'gradient-golden': 'linear-gradient(135deg, #D4A574, #B8860B)'
+				'gradient-dark': 'linear-gradient(135deg, #1C1917 0%, #292524 50%, #1C1917 100%)',
+				'gradient-primary': 'linear-gradient(135deg, #047857 0%, #059669 50%, #10B981 100%)',
+				'gradient-accent': 'linear-gradient(135deg, #D97706, #F59E0B, #FBBF24)'
+			},
+			transitionDuration: {
+				'250': '250ms',
+				'300': '300ms'
 			}
 		}
 	},
