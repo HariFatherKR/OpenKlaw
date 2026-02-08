@@ -44,7 +44,7 @@ export class GatewayClient {
         this.ws = new WebSocket(wsUrl);
 
         this.ws.onopen = () => {
-          console.log('[Gateway] Connected');
+          console.log('[게이트웨이] 연결됨');
           this.reconnectAttempts = 0;
           this.notifyHandlers({ type: 'connected' });
           
@@ -69,12 +69,12 @@ export class GatewayClient {
         };
 
         this.ws.onerror = (error) => {
-          console.error('[Gateway] Error:', error);
-          this.notifyHandlers({ type: 'error', error: 'Connection error' });
+          console.error('[게이트웨이] 오류:', error);
+          this.notifyHandlers({ type: 'error', error: '연결 오류' });
         };
 
         this.ws.onclose = () => {
-          console.log('[Gateway] Disconnected');
+          console.log('[게이트웨이] 연결 끊김');
           this.notifyHandlers({ type: 'disconnected' });
           this.attemptReconnect();
         };
@@ -100,7 +100,7 @@ export class GatewayClient {
    */
   sendMessage(content: string): void {
     if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
-      this.notifyHandlers({ type: 'error', error: 'Not connected' });
+      this.notifyHandlers({ type: 'error', error: '연결되지 않음' });
       return;
     }
 
@@ -116,7 +116,7 @@ export class GatewayClient {
    */
   sendMessageWithFile(content: string, fileContent: string, fileName: string): void {
     if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
-      this.notifyHandlers({ type: 'error', error: 'Not connected' });
+      this.notifyHandlers({ type: 'error', error: '연결되지 않음' });
       return;
     }
 
@@ -162,7 +162,7 @@ export class GatewayClient {
       case 'error':
         this.notifyHandlers({
           type: 'error',
-          error: data.message || 'Unknown error'
+          error: data.message || '알 수 없는 오류'
         });
         break;
 
