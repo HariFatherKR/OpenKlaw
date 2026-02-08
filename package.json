@@ -52,6 +52,7 @@
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@tauri-apps/cli": "^2.0.0",
     "@types/node": "^22.0.0",
+    "@types/papaparse": "^5.5.2",
     "autoprefixer": "^10.4.0",
     "eslint": "^9.0.0",
     "eslint-plugin-svelte": "^2.0.0",
@@ -69,6 +70,8 @@
     "vitest": "^2.0.0"
   },
   "dependencies": {
-    "@tauri-apps/api": "^2.0.0"
+    "@tauri-apps/api": "^2.0.0",
+    "papaparse": "^5.5.3",
+    "xlsx": "^0.18.5"
   }
 }

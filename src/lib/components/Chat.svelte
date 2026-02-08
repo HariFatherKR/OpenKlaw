@@ -128,50 +128,69 @@
 	}
 </script>
 
-<div class="chat-container" bind:this={chatContainer}>
-	{#each messages as message (message.id)}
-		<div class="message {message.role}">
-			<div class="message-avatar">
-				{message.role === 'user' ? '👤' : '🦞'}
+<div class="chat-wrapper">
+	<div class="chat-container" bind:this={chatContainer}>
+		{#each messages as message (message.id)}
+			<div class="message {message.role}">
+				<div class="message-avatar">
+					{message.role === 'user' ? '👤' : '🦞'}
+				</div>
+				<div class="message-content">
+					<pre>{message.content}</pre>
+				</div>
 			</div>
-			<div class="message-content">
-				<pre>{message.content}</pre>
+		{/each}
+		
+		{#if isLoading}
+			<div class="message assistant">
+				<div class="message-avatar">🦞</div>
+				<div class="message-content">
+					<span class="typing-indicator">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</div>
 			</div>
-		</div>
-	{/each}
+		{/if}
+	</div>
 	
-	{#if isLoading}
-		<div class="message assistant">
-			<div class="message-avatar">🦞</div>
-			<div class="message-content">
-				<span class="typing-indicator">
-					<span></span>
-					<span></span>
-					<span></span>
-				</span>
-			</div>
+	<form class="chat-input-container" onsubmit={handleSubmit}>
+		<div class="input-wrapper">
+			<textarea
+				bind:value={inputValue}
+				onkeydown={handleKeyDown}
+				placeholder={isConnected ? "메시지를 입력하세요..." : "Ollama 연결 대기 중..."}
+				disabled={!isConnected || isLoading}
+				rows="1"
+			></textarea>
+			<button type="submit" disabled={!inputValue.trim() || isLoading || !isConnected}>
+				{isLoading ? '⏳' : '📤'}
+			</button>
 		</div>
-	{/if}
+	</form>
 </div>
 
-<form class="chat-input-container" onsubmit={handleSubmit}>
-	<textarea
-		bind:value={inputValue}
-		onkeydown={handleKeyDown}
-		placeholder={isConnected ? "메시지를 입력하세요..." : "Ollama 연결 대기 중..."}
-		disabled={!isConnected || isLoading}
-		rows="1"
-	></textarea>
-	<button type="submit" disabled={!inputValue.trim() || isLoading || !isConnected}>
-		{isLoading ? '⏳' : '📤'}
-	</button>
-</form>
-
 <style>
+	.chat-wrapper {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		background: rgba(255, 255, 255, 0.08);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 20px;
+		overflow: hidden;
+		box-shadow: 
+			0 8px 32px rgba(0, 0, 0, 0.1),
+			inset 0 1px 0 rgba(255, 255, 255, 0.1);
+	}
+	
 	.chat-container {
 		flex: 1;
 		overflow-y: auto;
-		padding: 1rem;
+		padding: 1.5rem;
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
@@ -181,6 +200,12 @@
 		display: flex;
 		gap: 0.75rem;
 		max-width: 85%;
+		animation: fadeIn 0.3s ease-out;
+	}
+	
+	@keyframes fadeIn {
+		from { opacity: 0; transform: translateY(10px); }
+		to { opacity: 1; transform: translateY(0); }
 	}
 	
 	.message.user {
@@ -193,19 +218,32 @@
 	}
 	
 	.message-avatar {
-		font-size: 1.5rem;
+		width: 40px;
+		height: 40px;
+		border-radius: 12px;
+		background: rgba(255, 255, 255, 0.1);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.25rem;
 		flex-shrink: 0;
 	}
 	
+	.message.user .message-avatar {
+		background: linear-gradient(135deg, rgba(20, 184, 166, 0.3), rgba(6, 182, 212, 0.2));
+	}
+	
 	.message-content {
-		background: var(--color-surface);
-		padding: 0.75rem 1rem;
-		border-radius: 1rem;
+		background: rgba(255, 255, 255, 0.06);
+		padding: 1rem 1.25rem;
+		border-radius: 16px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
 		max-width: 100%;
 	}
 	
 	.message.user .message-content {
-		background: var(--color-primary);
+		background: linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(6, 182, 212, 0.15));
+		border-color: rgba(20, 184, 166, 0.3);
 	}
 	
 	.message-content pre {
@@ -214,27 +252,46 @@
 		word-wrap: break-word;
 		font-family: inherit;
 		font-size: 0.95rem;
-		line-height: 1.5;
+		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.9);
 	}
 	
 	.chat-input-container {
+		padding: 1rem 1.5rem 1.5rem;
+		background: rgba(0, 0, 0, 0.2);
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+	
+	.input-wrapper {
 		display: flex;
-		gap: 0.5rem;
-		padding: 1rem;
-		background: var(--color-surface);
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		gap: 0.75rem;
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 16px;
+		padding: 0.5rem;
+		transition: all 0.2s ease;
+	}
+	
+	.input-wrapper:focus-within {
+		border-color: rgba(20, 184, 166, 0.5);
+		box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
 	}
 	
 	.chat-input-container textarea {
 		flex: 1;
 		padding: 0.75rem 1rem;
 		border: none;
-		border-radius: 1.5rem;
-		background: var(--color-bg);
-		color: var(--color-text);
-		font-size: 1rem;
+		border-radius: 12px;
+		background: transparent;
+		color: rgba(255, 255, 255, 0.95);
+		font-size: 0.95rem;
 		resize: none;
 		outline: none;
+		font-family: inherit;
+	}
+	
+	.chat-input-container textarea::placeholder {
+		color: rgba(255, 255, 255, 0.4);
 	}
 	
 	.chat-input-container textarea:disabled {
@@ -242,18 +299,22 @@
 	}
 	
 	.chat-input-container button {
-		padding: 0.75rem 1rem;
+		padding: 0.75rem 1.25rem;
 		border: none;
-		border-radius: 50%;
-		background: var(--color-primary);
+		border-radius: 12px;
+		background: linear-gradient(135deg, #14b8a6, #0d9488);
 		color: white;
 		font-size: 1.25rem;
 		cursor: pointer;
-		transition: background 0.2s;
+		transition: all 0.2s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	
 	.chat-input-container button:hover:not(:disabled) {
-		background: var(--color-primary-hover);
+		background: linear-gradient(135deg, #0d9488, #0f766e);
+		box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
 	}
 	
 	.chat-input-container button:disabled {
@@ -264,12 +325,13 @@
 	.typing-indicator {
 		display: flex;
 		gap: 4px;
+		padding: 0.25rem;
 	}
 	
 	.typing-indicator span {
 		width: 8px;
 		height: 8px;
-		background: var(--color-text-muted);
+		background: rgba(20, 184, 166, 0.6);
 		border-radius: 50%;
 		animation: bounce 1.4s infinite;
 	}
