@@ -33,7 +33,7 @@ func DefaultConfig() *Config {
 		DMPolicy:     "open",
 		AllowFrom:    []string{},
 		SystemPrompt: "당신은 Dubai Crab, 한국 사무직을 위한 친절한 AI 비서입니다. 간결하고 도움이 되는 답변을 제공하세요.",
-		Model:        "qwen2.5:3b",
+		Model:        "qwen2.5:0.5b",
 	}
 }
 

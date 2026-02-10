@@ -40,14 +40,14 @@ func DefaultConfig() *Config {
 		AppName:          "Dubai Crab",
 		Version:          "0.1.0",
 		OllamaURL:        "http://localhost:11434",
-		OllamaModel:      "qwen2.5:3b",
+		OllamaModel:      "qwen2.5:0.5b",
 		KakaoEnabled:     true,
 		KakaoPort:        3847,
 		KakaoWebhookPath: "/kakao/webhook",
 		KakaoDMPolicy:    "open",
 		KakaoAllowFrom:   []string{},
 		KakaoSystemPrompt: "당신은 Dubai Crab, 한국 사무직을 위한 친절한 AI 비서입니다. 간결하고 도움이 되는 답변을 제공하세요.",
-		KakaoModel:       "qwen2.5:3b",
+		KakaoModel:       "qwen2.5:0.5b",
 		RelayURL:         "wss://relay.dubaicrab.io",
 	}
 }
