@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"DubaiCrab-Go/internal/ollama"
+	"DubaiCrab/internal/ollama"
 )
 
 // Config holds Kakao webhook server configuration

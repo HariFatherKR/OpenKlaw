@@ -65,8 +65,10 @@
 
 <style>
   .app-layout {
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
     display: flex;
+    overflow: hidden;
   }
   
   .main-content {
@@ -74,13 +76,15 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    min-width: 0;
   }
   
   .chat-container {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 0 2rem 2rem 2rem;
+    padding: 1rem;
     overflow: hidden;
+    min-height: 0;
   }
 </style>

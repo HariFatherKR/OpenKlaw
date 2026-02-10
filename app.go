@@ -6,13 +6,13 @@ import (
 	"log"
 	"runtime"
 
-	"DubaiCrab-Go/internal/agent"
-	"DubaiCrab-Go/internal/auth"
-	"DubaiCrab-Go/internal/config"
-	"DubaiCrab-Go/internal/kakao"
-	"DubaiCrab-Go/internal/ollama"
-	"DubaiCrab-Go/internal/relay"
-	"DubaiCrab-Go/internal/tools"
+	"DubaiCrab/internal/agent"
+	"DubaiCrab/internal/auth"
+	"DubaiCrab/internal/config"
+	"DubaiCrab/internal/kakao"
+	"DubaiCrab/internal/ollama"
+	"DubaiCrab/internal/relay"
+	"DubaiCrab/internal/tools"
 
 	wailsRuntime "github.com/wailsapp/wails/v2/pkg/runtime"
 )

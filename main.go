@@ -33,15 +33,8 @@ func main() {
 		// wails.Quit()
 	})
 
-	// Edit menu
-	editMenu := appMenu.AddSubmenu("편집")
-	editMenu.AddText("실행취소", keys.CmdOrCtrl("z"), nil)
-	editMenu.AddText("다시실행", keys.CmdOrCtrl("shift+z"), nil)
-	editMenu.AddSeparator()
-	editMenu.AddText("잘라내기", keys.CmdOrCtrl("x"), nil)
-	editMenu.AddText("복사", keys.CmdOrCtrl("c"), nil)
-	editMenu.AddText("붙여넣기", keys.CmdOrCtrl("v"), nil)
-	editMenu.AddText("전체선택", keys.CmdOrCtrl("a"), nil)
+	// Note: Edit menu (Cmd+A, Cmd+C, Cmd+V, Cmd+X) is handled natively by WebView
+	// No explicit Edit menu needed - macOS WebView handles these automatically
 
 	// View menu
 	viewMenu := appMenu.AddSubmenu("보기")

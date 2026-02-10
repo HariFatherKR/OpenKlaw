@@ -14,8 +14,28 @@ export function ClearChatHistory(arg1) {
   return window['go']['main']['App']['ClearChatHistory'](arg1);
 }
 
+export function ConnectRelay(arg1) {
+  return window['go']['main']['App']['ConnectRelay'](arg1);
+}
+
+export function ConvertHWPToPDF(arg1, arg2) {
+  return window['go']['main']['App']['ConvertHWPToPDF'](arg1, arg2);
+}
+
 export function CopyToClipboard(arg1) {
   return window['go']['main']['App']['CopyToClipboard'](arg1);
+}
+
+export function DisconnectRelay() {
+  return window['go']['main']['App']['DisconnectRelay']();
+}
+
+export function GenerateRelayCode() {
+  return window['go']['main']['App']['GenerateRelayCode']();
+}
+
+export function GetAuthStatus() {
+  return window['go']['main']['App']['GetAuthStatus']();
 }
 
 export function GetChatHistory(arg1) {
@@ -38,6 +58,10 @@ export function GetOllamaModels() {
   return window['go']['main']['App']['GetOllamaModels']();
 }
 
+export function GetRelayStatus() {
+  return window['go']['main']['App']['GetRelayStatus']();
+}
+
 export function GetSystemInfo() {
   return window['go']['main']['App']['GetSystemInfo']();
 }
@@ -48,6 +72,22 @@ export function GetToolList() {
 
 export function Greet(arg1) {
   return window['go']['main']['App']['Greet'](arg1);
+}
+
+export function Login() {
+  return window['go']['main']['App']['Login']();
+}
+
+export function Logout() {
+  return window['go']['main']['App']['Logout']();
+}
+
+export function OcrFromBase64(arg1) {
+  return window['go']['main']['App']['OcrFromBase64'](arg1);
+}
+
+export function OcrFromFile(arg1) {
+  return window['go']['main']['App']['OcrFromFile'](arg1);
 }
 
 export function OpenURL(arg1) {

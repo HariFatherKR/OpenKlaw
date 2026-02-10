@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"DubaiCrab-Go/internal/ollama"
-	"DubaiCrab-Go/internal/tools"
+	"DubaiCrab/internal/ollama"
+	"DubaiCrab/internal/tools"
 )
 
 // Message represents a conversation message
@@ -56,7 +56,7 @@ func NewAgent(ollamaManager *ollama.Manager, registry *tools.Registry) *Agent {
 		ollama:       ollamaManager,
 		toolRegistry: registry,
 		sessions:     make(map[string]*Session),
-		model:        "qwen2.5:3b",
+		model:        "qwen2.5:0.5b",
 		systemPrompt: defaultSystemPrompt,
 		maxTokens:    4096,
 	}

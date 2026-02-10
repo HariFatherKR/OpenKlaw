@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { Chat as ChatAPI, GetChatHistory, ClearChatHistory } from '../../../wailsjs/go/main/App';
+  import crabIcon from '../../assets/crab.png';
 
   interface Props {
     ollamaReady?: boolean;
@@ -98,7 +99,7 @@
   <div class="messages" bind:this={messagesContainer}>
     {#if messages.length === 0}
       <div class="empty-state">
-        <span class="empty-icon">🦀</span>
+        <img src={crabIcon} alt="Dubai Crab" class="empty-icon" />
         <p>안녕하세요! 무엇이든 물어보세요.</p>
         <p class="empty-hint">예: "오늘 회의 안건 정리해줘" 또는 "이메일 초안 작성해줘"</p>
       </div>
@@ -193,7 +194,9 @@
   }
   
   .empty-icon {
-    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
     margin-bottom: 1rem;
   }
   

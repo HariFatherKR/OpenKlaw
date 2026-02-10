@@ -9,7 +9,17 @@ export function CheckOllama():Promise<boolean>;
 
 export function ClearChatHistory(arg1:string):Promise<void>;
 
+export function ConnectRelay(arg1:string):Promise<main.RelayStatus>;
+
+export function ConvertHWPToPDF(arg1:string,arg2:string):Promise<main.HWPConvertResult>;
+
 export function CopyToClipboard(arg1:string):Promise<void>;
+
+export function DisconnectRelay():Promise<void>;
+
+export function GenerateRelayCode():Promise<string>;
+
+export function GetAuthStatus():Promise<main.AuthStatus>;
 
 export function GetChatHistory(arg1:string):Promise<Array<main.ChatMessage>>;
 
@@ -21,11 +31,21 @@ export function GetKakaoStatus():Promise<main.KakaoStatus>;
 
 export function GetOllamaModels():Promise<Array<string>>;
 
+export function GetRelayStatus():Promise<main.RelayStatus>;
+
 export function GetSystemInfo():Promise<main.SystemInfo>;
 
 export function GetToolList():Promise<Array<string>>;
 
 export function Greet(arg1:string):Promise<string>;
+
+export function Login():Promise<main.AuthStatus>;
+
+export function Logout():Promise<void>;
+
+export function OcrFromBase64(arg1:string):Promise<main.OcrResult>;
+
+export function OcrFromFile(arg1:string):Promise<main.OcrResult>;
 
 export function OpenURL(arg1:string):Promise<void>;
 

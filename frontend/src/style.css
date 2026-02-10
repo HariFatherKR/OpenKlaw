@@ -9,8 +9,8 @@
   --crab-accent: #8D6E63;
   --crab-text: #EFEBE9;
   --crab-muted: #BCAAA4;
-  --crab-orange: #FF8A65;
-  --crab-gold: #FFD54F;
+  --crab-orange: #C9A86C;  /* 골드 블렌드 (카다이프) */
+  --crab-gold: #D4A574;    /* 밝은 골드 */
 }
 
 * {
@@ -20,7 +20,9 @@
 }
 
 html, body {
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background: linear-gradient(
     135deg,
@@ -34,8 +36,10 @@ html, body {
 }
 
 #app {
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   display: flex;
+  overflow: hidden;
 }
 
 /* Glass card effect */
@@ -85,7 +89,7 @@ html, body {
 /* Input styles */
 input, textarea {
   @apply bg-crab-dark border border-crab-accent rounded-lg px-3 py-2 text-crab-text;
-  @apply focus:outline-none focus:ring-2 focus:ring-crab-orange focus:border-transparent;
+  @apply focus:outline-none focus:ring-2 focus:ring-crab-gold focus:border-transparent;
 }
 
 /* Animation */

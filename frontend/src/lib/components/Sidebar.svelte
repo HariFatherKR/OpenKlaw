@@ -1,4 +1,6 @@
 <script lang="ts">
+  import crabIcon from '../../assets/crab.png';
+  
   interface Props {
     onSettings?: () => void;
   }
@@ -8,7 +10,7 @@
 
 <aside class="sidebar">
   <div class="logo">
-    <span class="logo-icon">🦀</span>
+    <img src={crabIcon} alt="Dubai Crab" class="logo-icon" />
     <span class="logo-text">Dubai Crab</span>
   </div>
   
@@ -51,7 +53,9 @@
   }
   
   .logo-icon {
-    font-size: 1.75rem;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
   }
   
   .logo-text {
